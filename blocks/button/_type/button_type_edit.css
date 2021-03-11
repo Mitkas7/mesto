@@ -1,0 +1,10 @@
+.button_type_edit {
+  width: 24px;
+  height: 24px;
+  background-color: #000;
+  border: 1px solid #fff;
+  align-self: end;
+  margin: auto;
+  margin-top: 16px;
+
+}
