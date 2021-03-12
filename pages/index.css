@@ -25,6 +25,7 @@
 @import url(../blocks/place/__card/place__card.css);
 @import url(../blocks/place/__image/place__image.css);
 @import url(../blocks/place/__caption/place__caption.css);
+@import url(../blocks/place/__name/place__name.css);
 /* footer styles */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
