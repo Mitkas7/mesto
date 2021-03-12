@@ -12,6 +12,7 @@
 }
 .popup__form-button:hover {
   opacity: .8;
+  cursor: pointer;
 }
 
 @media screen and (max-width: 320px) {
