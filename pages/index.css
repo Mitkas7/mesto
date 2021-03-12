@@ -1,11 +1,13 @@
+/* whole page styles */
 @import url(../vendor/normalize.css);
 @import url(../fonts/fonts.css);
 @import url(../blocks/root/root.css);
 @import url(../blocks/page/page.css);
-/* all buttons styles */
+/* buttons styles */
 @import url(../blocks/button/button.css);
 @import url(../blocks/button/_type/button_type_edit.css);
 @import url(../blocks/button/_type/button_type_add.css);
+@import url(../blocks/button/_type/button_type_like.css);
 /* header styles */
 @import url(../blocks/header/header.css);
 @import url(../blocks/logo/logo.css);
@@ -17,7 +19,13 @@
 @import url(../blocks/profile/__name/profile__name.css);
 @import url(../blocks/profile/__description/profile__description.css);
 /* places styles */
-@import url();
+@import url(../blocks/places/places.css);
+@import url(../blocks/places/__cards/places__cards.css);
+@import url(../blocks/place/place.css);
+@import url(../blocks/place/__card/place__card.css);
+@import url(../blocks/place/__image/place__image.css);
+@import url(../blocks/place/__caption/place__caption.css);
+@import url(../blocks/place/__name/place__name.css);
 /* footer styles */
 @import url(../blocks/footer/footer.css);
 @import url(../blocks/footer/__copyright/footer__copyright.css);
