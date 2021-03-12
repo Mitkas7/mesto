@@ -2,3 +2,15 @@
   max-width: 880px;
   margin: 45px auto 60px;
 }
+@media screen and (max-width: 1024px) {
+  .page {
+    margin: 37px auto 36px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .page{
+    margin: 28px 19px 36px;
+  }
+}
+

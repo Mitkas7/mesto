@@ -1,0 +1,22 @@
+.button_type_like {
+  background-color: #fff;
+  border: none;
+  width: 22px;
+  height: 19px;
+  position: absolute;
+  bottom: 30px;
+  right: 20px;
+  transition: opacity .2s;
+}
+
+.button_type_like:hover {
+  opacity: .5;
+}
+
+.button_type_like:active {
+
+}
+.button_type_like:focus {
+  outline: none;
+}
+

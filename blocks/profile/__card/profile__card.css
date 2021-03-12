@@ -2,4 +2,12 @@
   display: flex;
   flex-flow: row wrap;
   align-items: center;
+  padding: relative;
+}
+
+@media screen and (max-width: 767px) {
+  .profile__card {
+    flex-direction: column;
+    justify-content: center;
+  }
 }

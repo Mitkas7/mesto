@@ -6,3 +6,22 @@
   padding-bottom: 41px;
   margin-bottom: 40px;
 }
+@media screen and (max-width: 1024px) {
+  .header {
+    margin: 0 19px 40px;
+  }
+}
+
+
+@media screen and (max-width: 767px) {
+  .header {
+    padding-bottom: 31px;
+    margin-bottom: 42px;
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .header {
+    margin: 0 0 42px;
+  }
+}
