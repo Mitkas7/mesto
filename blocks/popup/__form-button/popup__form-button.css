@@ -15,7 +15,7 @@
   cursor: pointer;
 }
 
-@media screen and (max-width: 320px) {
+@media screen and (max-width: 375px) {
   .popup__form-button  {
     font-size: 14px;
   }
