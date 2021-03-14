@@ -1,8 +1,6 @@
 const popup = document.querySelector('.popup');
 const closeBtn = popup.querySelector('.popup__close-button');
 const editBtn = document.querySelector('.button_type_edit');
-const saveBtn = popup.querySelector('.popup__form-button');
-let likeBtn = document.querySelector('.button_type_like');
 const addBtn = document.querySelector('.button_type_add');
 // Открытие и закрытие попапа
 function openPopup() {
@@ -26,13 +24,15 @@ function formSubmitHandler(evt) {
 }
 editBtn.addEventListener('click', openPopup);
 closeBtn.addEventListener('click', closePopup);
-formElement.addEventListener('submit', formSubmitHandler, );
-likeBtn.addEventListener('click', like);
+formElement.addEventListener('submit', formSubmitHandler);
+
 // Поставить лайк карточке
-function like() {
-    likeBtn.classList.toggle('button_type_like-active');
+let likeBtn = document.querySelectorAll('.button_type_like');
+for (let i = 0; i < likeBtn.length; i++) {
+  likeBtn[i].addEventListener('click', like);
+  function like() {
+    likeBtn[i].classList.toggle('button_type_like-active');
   }
-
-
+}
 
 
