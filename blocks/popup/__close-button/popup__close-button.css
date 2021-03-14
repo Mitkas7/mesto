@@ -1,10 +1,12 @@
 .popup__close-button {
+  background: url(../../../icons/close_icon_big.svg) no-repeat center;
   outline: none;
   border: none;
-  background-color: rgba(0,0,0,0);
   position: absolute;
   top: -35px;
   right: -42px;
+  width: 40px;
+  height: 40px;
 
 }
 
@@ -17,5 +19,8 @@
   .popup__close-button {
     top: -40px;
     right: 0;
+    height: 26px;
+    width: 26px;
+    background: url(../../../icons/close_Icon_small.svg) no-repeat center;
   }
 }
