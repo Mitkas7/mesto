@@ -1,7 +1,7 @@
 let popup = document.querySelector('.popup');
 const closeBtn = popup.querySelector('.popup__close-button');
 let editBtn = document.querySelector('.button_type_edit');
-let addBtn = document.querySelector('.button_type_add');
+// let addBtn = document.querySelector('.button_type_add');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__Job');
 // Открытие и закрытие попапа
