@@ -35,12 +35,12 @@ formElement.addEventListener('submit', formSubmitHandler);
 
 
 // Поставить лайк карточке
-// let likeBtn = document.querySelectorAll('.button_type_like');
-// for (let i = 0; i < likeBtn.length; i++) {
-//   likeBtn[i].addEventListener('click', like);
-//   function like() {
-//     likeBtn[i].classList.toggle('button_type_like-active');
-//   }
-// }
+let likeBtn = document.querySelectorAll('.button_type_like');
+for (let i = 0; i < likeBtn.length; i++) {
+  likeBtn[i].addEventListener('click', like);
+  function like() {
+    likeBtn[i].classList.toggle('button_type_like-active');
+  }
+}
 
 
