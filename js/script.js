@@ -6,13 +6,15 @@ let closeBtn = popup.querySelector('.popup__close-button');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
 let formElement = document.querySelector('.popup__form');
-let nameInput = formElement.querySelector('.name-input');
-let jobInput = formElement.querySelector('.job-input');
+let nameInput = formElement.querySelector('.popup__form-item_type_name');
+let jobInput = formElement.querySelector('.popup__form-item_type_job');
 
 
 // Открытие и закрытие попапа
 function openPopup() {
   popup.classList.add('popup_status_opened');
+  nameInput.value = profileName.textContent;
+  jobInput.value = profileJob.textContent;
 }
 function closePopup() {
   popup.classList.remove('popup_status_opened');
@@ -26,21 +28,19 @@ function formSubmitHandler(evt) {
 
 editBtn.addEventListener('click', () => {
   openPopup();
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-  saveBtn.addEventListener('click', closePopup);
 })
 closeBtn.addEventListener('click', closePopup);
 formElement.addEventListener('submit', formSubmitHandler);
 
 
 // Поставить лайк карточке
-let likeBtn = document.querySelectorAll('.button_type_like');
-for (let i = 0; i < likeBtn.length; i++) {
-  likeBtn[i].addEventListener('click', like);
-  function like() {
-    likeBtn[i].classList.toggle('button_type_like-active');
-  }
-}
+// можно не удалять а оставить закоментированным?)
+// let likeBtn = document.querySelectorAll('.button_type_like');
+// for (let i = 0; i < likeBtn.length; i++) {
+//   likeBtn[i].addEventListener('click', like);
+//   function like() {
+//     likeBtn[i].classList.toggle('button_type_like-active');
+//   }
+// }
 
 
