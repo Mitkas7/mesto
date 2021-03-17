@@ -1,5 +1,5 @@
 .button_type_like {
-  background-color: #fff;
+  background: url(../../../images/like_icon_white.svg);
   border: none;
   width: 22px;
   height: 19px;
@@ -8,8 +8,9 @@
 
 .button_type_like:hover {
   opacity: .5;
+  cursor: pointer;
 }
 
-.button_type_like:active {
-
+.button_type_like:focus {
+  outline: none;
 }
