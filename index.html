@@ -18,7 +18,7 @@
           <img src="./images/avatar_kusto.jpg" alt="аватар" class="profile__avatar">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
-            <button class="button button_type_edit" type="button"></button>
+            <button class="profile__button-edit button button_type_edit" type="button"></button>
             <p class="profile__job">Исследователь океана</p>
           </div>
         </div>
@@ -92,14 +92,14 @@
     <div class="popup">
       <div class="popup__overlay"></div>
       <div class="popup__container">
-        <button class="popup__button-close button popup__close-button" type="button"></button>
+        <button class="popup__button-close button" type="button"></button>
         <form action="#" name="profile-edit" class="popup__form">
           <h3 class="popup__title">Редактировать профиль</h3>
           <fieldset class="popup__fieldset">
             <input class="popup__form-item popup__form-item_type_name" type="text" name="name" required>
             <input class="popup__form-item popup__form-item_type_job" type="text" name="job" required>
           </fieldset>
-          <button type="submit" class="popup__button-submit button button_type_save popup__form-button">Сохранить</button>
+          <button type="submit" class="popup__button-submit button button_type_save">Сохранить</button>
         </form>
       </div>
     </div>
