@@ -10,81 +10,77 @@
 <body class="root">
   <div class="page">
     <header class="header">
-      <img src="./images/logo.svg" alt="" class="logo">
+      <img src="./images/logo.svg" alt="логотип" class="logo">
     </header>
     <main class="content">
       <section class="profile">
         <div class="profile__card">
           <img src="./images/avatar_kusto.jpg" alt="аватар" class="profile__avatar">
           <div class="profile__info">
-            <h2 class="profile__name">Жак-Ив Кусто</h2>
-
-              <button class="button button_type_edit">
-                <img src="./icons/pencil_icon_white.svg" alt="иконка карандаша" class="profile__edit-button">
-              </button>
-
-            <p class="profile__description">Исследователь океана</p>
+            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <button class="profile__button-edit button button_type_edit" type="button"></button>
+            <p class="profile__job">Исследователь океана</p>
           </div>
         </div>
-        <button class="button button_type_add">
-          <img src="./icons/plus_icon_white.svg" alt="иконка плюса" class="profile__add-button">
-        </button>
+        <button class="profile__button-add button button_type_add" type="button"></button>
       </section>
       <section class="places">
         <ul class="places__cards">
           <li class="place">
             <figure class="place__card">
               <img src="./images/Kislovodsk.jpg" alt="фото гор в районе Кисловодска" class="place__image">
-              <figcaption class="place__caption">Кисловодск</figcaption>
+              <figcaption class="place__caption">
+                <h2 class="place__name">Кисловодск</h2>
+                <button class="place__button-like button button_type_like" type="button"></button>
+              </figcaption>
             </figure>
-            <button class="button button_type_like">
-              <img src="./icons/like_icon_white.svg" alt="иконка лайка">
-            </button>
           </li>
           <li class="place">
             <figure class="place__card">
               <img src="./images/Ergesheld.jpg" alt="фото маяка во Владивостоке" class="place__image">
-              <figcaption class="place__caption">Маяк Эргешельд</figcaption>
+              <figcaption class="place__caption">
+                <h2 class="place__name">Маяк Эргешельд</h2>
+                <button class="place__button-like button button_type_like" type="button"></button>
+              </figcaption>
             </figure>
-            <button class="button button_type_like">
-              <img src="./icons/like_icon_white.svg" alt="иконка лайка">
-            </button>
           </li>
           <li class="place">
             <figure class="place__card">
               <img src="./images/Arkhyz.jpg" alt="фото гор в Архызе" class="place__image">
-              <figcaption class="place__caption">Архыз</figcaption>
+              <figcaption class="place__caption">
+                <h2 class="place__name">Архыз</h2>
+                <button class="place__button-like button button_type_like" type="button"></button>
+              </figcaption>
             </figure>
-            <button class="button button_type_like">
-              <img src="./icons/like_icon_white.svg" alt="иконка лайка">
-            </button>
-          </li>
-          <li class="place">
-            <figure class="place__card">
-              <img src="./images/Estosadok.jpg" alt="фото канатной дорого в Эстосадке" class="place__image">
-              <figcaption class="place__caption">Эстосадок</figcaption>
-            </figure>
-            <button class="button button_type_like">
-              <img src="./icons/like_icon_white.svg" alt="иконка лайка">
-            </button>
           </li>
           <li class="place">
             <figure class="place__card">
               <img src="./images/Karelia.jpg" alt="фото с домиком у озера в Карелии" class="place__image">
-              <figcaption class="place__caption">Карелия</figcaption>
+              <figcaption class="place__caption">
+                <h2 class="place__name">Карелия</h2>
+                <button class="place__button-like button button_type_like" type="button"></button>
+              </figcaption>
             </figure>
-            <button class="button button_type_like">
-              <img src="./icons/like_icon_white.svg" alt="иконка лайка">
-            </button>
           </li>
           <li class="place">
             <figure class="place__card">
-              <img src="./images/Baikal.jpg" alt="фото озера Байкал" class="place__image">
-              <figcaption class="place__caption">Байкал</figcaption>
+              <img src="./images/Estosadok.jpg" alt="фото канатной дорого в Эстосадке" class="place__image">
+              <figcaption class="place__caption">
+                <h2 class="place__name">Эстосадок</h2>
+                <button class="place__button-like button button_type_like" type="button">
+                </button>
+              </figcaption>
             </figure>
-            <button class="button button_type_like">
-              <img src="./icons/like_icon_white.svg" alt="иконка лайка">
-            </button>
+          </li>
+          <li class="place">
+            <figure class="place__card">
+              <img src="./images/Csaritsino.jpg" alt="фото музей Царицино" class="place__image">
+              <figcaption class="place__caption">
+                <h2 class="place__name">Царицино</h2>
+                <button class="place__button-like button button_type_like" type="button">
+                </button>
+              </figcaption>
+            </figure>
           </li>
         </ul>
       </section>
@@ -92,7 +88,22 @@
     <footer class="footer">
       <p class="footer__copyright">&COPY; 2021 Mesto Russia</p>
     </footer>
-    <!-- добавить сюда попап и шаблон статьи -->
+    <!-- hell yeah, my first popup -->
+    <div class="popup">
+      <div class="popup__overlay"></div>
+      <div class="popup__container">
+        <button class="popup__button-close button" type="button"></button>
+        <form action="#" name="profile-edit" class="popup__form">
+          <h3 class="popup__title">Редактировать профиль</h3>
+          <fieldset class="popup__fieldset">
+            <input class="popup__form-item popup__form-item_type_name" type="text" name="name" required>
+            <input class="popup__form-item popup__form-item_type_job" type="text" name="job" required>
+          </fieldset>
+          <button type="submit" class="popup__button-submit button button_type_save">Сохранить</button>
+        </form>
+      </div>
+    </div>
   </div>
+  <script src="js/script.js"></script>
 </body>
 </html>
