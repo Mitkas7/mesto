@@ -1,7 +1,7 @@
 let popup = document.querySelector('.popup');
 let editBtn = document.querySelector('.button_type_edit');
 let saveBtn = popup.querySelector('.button_type_save');
-let closeBtn = popup.querySelector('.popup__close-button');
+let closeBtn = popup.querySelector('.popup__button-close');
 // let addBtn = document.querySelector('.button_type_add');
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
