@@ -7,4 +7,9 @@
   outline: none;
 }
 
+.button:hover {
+  opacity: .5;
+  cursor: pointer;
+}
+
 

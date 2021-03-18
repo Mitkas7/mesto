@@ -12,10 +12,6 @@
   opacity: .6;
 }
 
-.button_type_edit:focus {
-  outline: none;
-}
-
 @media screen and (max-width: 320px) {
   .button_type_edit {
     width: 18px;

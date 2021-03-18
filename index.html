@@ -27,6 +27,7 @@
       <section class="places">
         <ul class="places__cards">
           <li class="place">
+            <button class="place__button-remove button"></button>
             <figure class="place__card">
               <img src="./images/Kislovodsk.jpg" alt="фото гор в районе Кисловодска" class="place__image">
               <figcaption class="place__caption">
@@ -36,6 +37,7 @@
             </figure>
           </li>
           <li class="place">
+            <button class="place__button-remove button"></button>
             <figure class="place__card">
               <img src="./images/Ergesheld.jpg" alt="фото маяка во Владивостоке" class="place__image">
               <figcaption class="place__caption">
@@ -45,6 +47,7 @@
             </figure>
           </li>
           <li class="place">
+            <button class="place__button-remove button"></button>
             <figure class="place__card">
               <img src="./images/Arkhyz.jpg" alt="фото гор в Архызе" class="place__image">
               <figcaption class="place__caption">
@@ -54,6 +57,7 @@
             </figure>
           </li>
           <li class="place">
+            <button class="place__button-remove button"></button>
             <figure class="place__card">
               <img src="./images/Karelia.jpg" alt="фото с домиком у озера в Карелии" class="place__image">
               <figcaption class="place__caption">
@@ -63,6 +67,7 @@
             </figure>
           </li>
           <li class="place">
+            <button class="place__button-remove button"></button>
             <figure class="place__card">
               <img src="./images/Estosadok.jpg" alt="фото канатной дорого в Эстосадке" class="place__image">
               <figcaption class="place__caption">
@@ -73,6 +78,7 @@
             </figure>
           </li>
           <li class="place">
+            <button class="place__button-remove button"></button>
             <figure class="place__card">
               <img src="./images/Csaritsino.jpg" alt="фото музей Царицино" class="place__image">
               <figcaption class="place__caption">
@@ -88,9 +94,7 @@
     <footer class="footer">
       <p class="footer__copyright">&COPY; 2021 Mesto Russia</p>
     </footer>
-    <!-- hell yeah, my first popup -->
-    <div class="popup">
-      <div class="popup__overlay"></div>
+    <div class="popup popup_type_edit">
       <div class="popup__container">
         <button class="popup__button-close button" type="button"></button>
         <form action="#" name="profile-edit" class="popup__form">
@@ -100,6 +104,19 @@
             <input class="popup__form-item popup__form-item_type_job" type="text" name="job" required>
           </fieldset>
           <button type="submit" class="popup__button-submit button button_type_save">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_add">
+      <div class="popup__container">
+        <button class="popup__button-close button" type="button"></button>
+        <form action="#" name="add-place" class="popup__form">
+          <h3 class="popup__title">Новое место</h3>
+          <fieldset class="popup__fieldset">
+            <input class="popup__form-item popup__form-item_type_place-name" type="text" name="place-name" required placeholder="Название">
+            <input class="popup__form-item popup__form-item_type_image-url" type="url" name="image-url" required placeholder="Ссылка на картинку">
+          </fieldset>
+          <button type="submit" class="popup__button-submit button button_type_save">Создать</button>
         </form>
       </div>
     </div>
