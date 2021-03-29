@@ -1,3 +1,4 @@
+'use strict'
 let popup = document.querySelector('.popup');
 let popupEdit = document.querySelector('.popup_type_edit');
 let popupAdd = document.querySelector('.popup_type_add');
@@ -10,15 +11,18 @@ let profileJob = document.querySelector('.profile__job');
 let formElement = document.querySelector('.popup__form');
 let nameInput = formElement.querySelector('.popup__form-item_type_name');
 let jobInput = formElement.querySelector('.popup__form-item_type_job');
-// Открытие и закрытие попапа редактирования профиля
+// Открытие попапа редактирования профиля
 function openPopup() {
   popup.classList.add('popup_status_opened');
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 }
+// Закрытие попапоа редактирования профиля
 function closePopup() {
   popup.classList.remove('popup_status_opened');
+
 }
+// сохранение новых данных профиля
 function formSubmitHandler(evt) {
   evt.preventDefault(); // Эта строчка отменяет стандартную отправку формы.
   profileName.textContent = nameInput.value;
@@ -28,7 +32,7 @@ function formSubmitHandler(evt) {
 editBtn.addEventListener('click', () => {
   openPopup();
 })
-closeBtn.addEventListener('click', closePopup);
+// closeBtn.addEventListener('click', closePopup);
 formElement.addEventListener('submit', formSubmitHandler);
 // открытие и закрытие попапа добавления карточки
 function openPopupAdd() {
