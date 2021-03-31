@@ -26,17 +26,19 @@
       </section>
       <section class="places">
         <ul class="places__cards">
-          <li class="place">
-            <button class="place__button-remove button"></button>
-            <figure class="place__card">
-              <img src="./images/Kislovodsk.jpg" alt="фото гор в районе Кисловодска" class="place__image">
-              <figcaption class="place__caption">
-                <h2 class="place__name">Кисловодск</h2>
-                <button class="place__button-like button button_type_like" type="button"></button>
-              </figcaption>
-            </figure>
-          </li>
-          <li class="place">
+          <template class="card-template">
+            <li class="place">
+              <button class="place__button-remove button"></button>
+              <figure class="place__card">
+                <img src="#" alt="#" class="place__image">
+                <figcaption class="place__caption">
+                  <h2 class="place__name"></h2>
+                  <button class="place__button-like button button_type_like" type="button"></button>
+                </figcaption>
+              </figure>
+            </li>
+          </template>
+          <!-- <li class="place">
             <button class="place__button-remove button"></button>
             <figure class="place__card">
               <img src="./images/Ergesheld.jpg" alt="фото маяка во Владивостоке" class="place__image">
@@ -87,7 +89,7 @@
                 </button>
               </figcaption>
             </figure>
-          </li>
+          </li> -->
         </ul>
       </section>
     </main>
@@ -118,6 +120,17 @@
           </fieldset>
           <button type="submit" class="popup__button-submit button button_type_save">Создать</button>
         </form>
+      </div>
+    </div>
+    <div class="popup popup_type_image">
+      <div class="popup__container">
+        <button class="popup__button-close button" type="button"></button>
+         <figure class="place__card">
+          <img src="#" alt="#" class="place__image">
+          <figcaption class="place__caption">
+            <h2 class="place__name"></h2>
+          </figcaption>
+        </figure>
       </div>
     </div>
   </div>
