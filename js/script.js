@@ -55,12 +55,12 @@ function createCard(newCard) {
   return card;
 }
 // Рендеринг начальных 6-и карт
-function cardsRendering(array) {
+function renderingCards(array) {
   array.reverse().forEach(item => {
     cardsArray.prepend(createCard(item));
   })
 }
-cardsRendering(initialCards);
+renderingCards(initialCards);
 // Поставить лайк или удалить или открыть картинку
 cardsArray.addEventListener('click', (evt) => {
   if (evt.target.classList.contains('place__button-remove')) {
@@ -77,6 +77,7 @@ cardsArray.addEventListener('click', (evt) => {
     // console.log(cardImage);
     viewImage(imageUrl, placeName);
     document.querySelector('.popup_type_image').style.backgroundColor = "rgba(0,0,0,.9)";
+    animate(popupImage);
     openPopup(popupImage);
   }
 });
@@ -90,6 +91,12 @@ function viewImage(url, name) {
 function openPopup(popup) {
   popup.classList.add('popup_status_opened');
 }
+// Анимация открытия попапов
+function animate(popup) {
+  popup.classList.add('animation-transition');
+}
+
+
 // Общая функция закрытия попапов
 let closeBtnsArray = document.querySelectorAll('.popup__button-close');
 function closePopups(evt) {
@@ -102,6 +109,7 @@ closeBtnsArray.forEach(function (elem) {
 })
 // Открытие попапа редактирования профиля
 editBtn.addEventListener('click', (evt) => {
+  animate(popupEdit);
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
@@ -116,6 +124,7 @@ function formSubmitHandler(evt) {
 formElement.addEventListener('submit', formSubmitHandler);
 // открытие попапа добавления карточки
 addBtn.addEventListener('click', (evt) => {
+  animate(popupAdd);
   openPopup(popupAdd);
 });
 // Добававление новой карточки
