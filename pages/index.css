@@ -45,6 +45,8 @@
 @import url(../blocks/popup/__button-submit/popup__button-submit.css);
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__place-caption/popup__place-caption.css);
+/* Анимация */
+@import url(../blocks/animations/animation-transition.css);
 
 
 
