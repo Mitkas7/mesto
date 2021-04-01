@@ -55,12 +55,12 @@ function createCard(newCard) {
   return card;
 }
 // Рендеринг начальных 6-и карт
-function cardsRendering(array) {
+function renderingCards(array) {
   array.reverse().forEach(item => {
     cardsArray.prepend(createCard(item));
   })
 }
-cardsRendering(initialCards);
+renderingCards(initialCards);
 // Поставить лайк или удалить или открыть картинку
 cardsArray.addEventListener('click', (evt) => {
   if (evt.target.classList.contains('place__button-remove')) {
@@ -95,7 +95,7 @@ function openPopup(popup) {
 function animate(popup) {
   popup.classList.add('animation-transition');
 }
-popupEdit.classList.add('animation-transition');
+
 
 // Общая функция закрытия попапов
 let closeBtnsArray = document.querySelectorAll('.popup__button-close');
