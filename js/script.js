@@ -132,7 +132,7 @@ formAdd.addEventListener('submit', (evt) => {
   evt.preventDefault();
   let placeName = formAdd.querySelector('.popup__form-item_type_place-name');
   let imageUrl = formAdd.querySelector('.popup__form-item_type_image-url');
-  cardsRendering([{ name: placeName.value , link: imageUrl.value }]);
+  renderingCards([{ name: placeName.value , link: imageUrl.value }]);
   closePopups(evt);
   formAdd.reset();
 });
