@@ -46,8 +46,6 @@
 @import url(../blocks/popup/__image/popup__image.css);
 @import url(../blocks/popup/__place-caption/popup__place-caption.css);
 @import url(../blocks/popup/__caption-container/popup__caption-container.css);
-/* Анимация */
-@import url(../blocks/animations/animation-transition.css);
 
 
 
