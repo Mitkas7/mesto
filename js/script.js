@@ -25,7 +25,7 @@ const initialCards = [
     link: 'https://images.unsplash.com/photo-1531916978893-6cdfd5df4e91?ixlib=rb-1.2.1&ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&auto=format&fit=crop&w=634&q=80'
   },
  ];
-let cardsArray = document.querySelector('.places__cards');
+const cardsArray = document.querySelector('.places__cards');
 // попапы
 let popupEdit = document.querySelector('.popup_type_edit');
 let popupAdd = document.querySelector('.popup_type_add');
@@ -45,7 +45,7 @@ let cardImage = document.querySelector('.popup__image');
 let cardName = document.querySelector('.popup__place-caption');
 // Сгенерировать новую карту
 function createCard(newCard) {
-  let cardTemplate = document.querySelector('.card-template');
+  const cardTemplate = document.querySelector('.card-template');
   let card = cardTemplate.content.cloneNode(true);
   let placeImage = card.querySelector('.place__image');
   placeImage.src = newCard.link;
