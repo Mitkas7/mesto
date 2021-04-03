@@ -73,11 +73,7 @@ cardsArray.addEventListener('click', (evt) => {
   else if (evt.target.classList.contains('place__image')) {
     let imageUrl = evt.target.getAttribute('src');
     let placeName = evt.target.closest('.place').querySelector('.place__name').textContent;
-    // console.log(evt.target);
-    // console.log(cardImage);
     viewImage(imageUrl, placeName);
-    document.querySelector('.popup_type_image').style.backgroundColor = 'rgba(0,0,0,.9)';
-    animate(popupImage);
     openPopup(popupImage);
   }
 });
@@ -85,31 +81,24 @@ cardsArray.addEventListener('click', (evt) => {
 function viewImage(url, name) {
   cardImage.src = url;
   cardName.textContent = name;
-  // console.log(cardName);
 }
 // Общая функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_status_opened');
 }
-// Анимация открытия попапов
-function animate(popup) {
-  popup.classList.add('animation-transition');
-}
-
-
 // Общая функция закрытия попапов
-let closeBtnsArray = document.querySelectorAll('.popup__button-close');
-function closePopups(evt) {
-  if (evt.target.closest('.popup').classList.contains('popup_status_opened')) {
-    evt.target.closest('.popup').classList.toggle('popup_status_opened');
-  }
-};
-closeBtnsArray.forEach(function (elem) {
-  elem.addEventListener('click', closePopups);
-})
+const closeBtnsArray = document.querySelectorAll('.popup__button-close');
+function closePopup(popup) {
+  popup.classList.remove('popup_status_opened');
+}
+closeBtnsArray.forEach((closeBtn) => {
+  closeBtn.addEventListener('click', (event) => {
+    const popup = event.target.parentNode.parentNode;
+    closePopup(popup);
+  });
+});
 // Открытие попапа редактирования профиля
-editBtn.addEventListener('click', (evt) => {
-  animate(popupEdit);
+editBtn.addEventListener('click', () => {
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
@@ -119,12 +108,11 @@ function formSubmitHandler(evt) {
   evt.preventDefault();
   profileName.textContent = nameInput.value;
   profileJob.textContent = jobInput.value;
-  closePopups(evt);
+  closePopup(popupEdit);
 }
 formElement.addEventListener('submit', formSubmitHandler);
 // открытие попапа добавления карточки
-addBtn.addEventListener('click', (evt) => {
-  animate(popupAdd);
+addBtn.addEventListener('click', () => {
   openPopup(popupAdd);
 });
 // Добававление новой карточки
@@ -133,7 +121,7 @@ formAdd.addEventListener('submit', (evt) => {
   let placeName = formAdd.querySelector('.popup__form-item_type_place-name');
   let imageUrl = formAdd.querySelector('.popup__form-item_type_image-url');
   renderingCards([{ name: placeName.value , link: imageUrl.value }]);
-  closePopups(evt);
+  closePopup(popupImage);
   formAdd.reset();
 });
 
