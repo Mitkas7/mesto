@@ -107,7 +107,7 @@ closeBtnsArray.forEach(function (elem) {
   elem.addEventListener('click', closePopups);
 })
 // Открытие попапа редактирования профиля
-editBtn.addEventListener('click', (evt) => {
+editBtn.addEventListener('click', () => {
   animate(popupEdit);
   openPopup(popupEdit);
   nameInput.value = profileName.textContent;
@@ -122,7 +122,7 @@ function formSubmitHandler(evt) {
 }
 formElement.addEventListener('submit', formSubmitHandler);
 // открытие попапа добавления карточки
-addBtn.addEventListener('click', (evt) => {
+addBtn.addEventListener('click', () => {
   animate(popupAdd);
   openPopup(popupAdd);
 });
