@@ -62,21 +62,21 @@ function renderingCards(array) {
 }
 renderingCards(initialCards);
 // Поставить лайк или удалить или открыть картинку
-cardsArray.addEventListener('click', (evt) => {
-  if (evt.target.classList.contains('place__button-remove')) {
-    let removeCard = evt.target.closest('.place');
-    cardsArray.removeChild(removeCard);
-  }
-  else if (evt.target.classList.contains('button_type_like')) {
-    evt.target.classList.toggle('button_type_like-active');
-  }
-  else if (evt.target.classList.contains('place__image')) {
-    let imageUrl = evt.target.getAttribute('src');
-    let placeName = evt.target.closest('.place').querySelector('.place__name').textContent;
-    viewImage(imageUrl, placeName);
-    openPopup(popupImage);
-  }
-});
+// cardsArray.addEventListener('click', (evt) => {
+//   if (evt.target.classList.contains('place__button-remove')) {
+//     let removeCard = evt.target.closest('.place');
+//     cardsArray.removeChild(removeCard);
+//   }
+//   else if (evt.target.classList.contains('button_type_like')) {
+//     evt.target.classList.toggle('button_type_like-active');
+//   }
+//   else if (evt.target.classList.contains('place__image')) {
+//     let imageUrl = evt.target.getAttribute('src');
+//     let placeName = evt.target.closest('.place').querySelector('.place__name').textContent;
+//     viewImage(imageUrl, placeName);
+//     openPopup(popupImage);
+//   }
+// });
 // Получить данные для разворачивания картинки
 function viewImage(url, name) {
   cardImage.src = url;
@@ -121,7 +121,7 @@ formAdd.addEventListener('submit', (evt) => {
   let placeName = formAdd.querySelector('.popup__form-item_type_place-name');
   let imageUrl = formAdd.querySelector('.popup__form-item_type_image-url');
   renderingCards([{ name: placeName.value , link: imageUrl.value }]);
-  closePopup(popupImage);
+  closePopup(popupAdd);
   formAdd.reset();
 });
 
