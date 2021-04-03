@@ -76,7 +76,6 @@ cardsArray.addEventListener('click', (evt) => {
     // console.log(evt.target);
     // console.log(cardImage);
     viewImage(imageUrl, placeName);
-    document.querySelector('.popup_type_image').style.backgroundColor = 'rgba(0,0,0,.9)';
     animate(popupImage);
     openPopup(popupImage);
   }
