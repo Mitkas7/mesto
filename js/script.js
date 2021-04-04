@@ -26,15 +26,15 @@ const initialCards = [
   },
  ];
 const cardsArray = document.querySelector('.places__cards');
-// попапы
+// Попапы
 let popupEdit = document.querySelector('.popup_type_edit');
 let popupAdd = document.querySelector('.popup_type_add');
 let popupImage = document.querySelector('.popup_type_image');
-// кнопки
+// Кнопки
 let editBtn = document.querySelector('.button_type_edit');
 let saveBtn = document.querySelector('.button_type_save');
 let addBtn = document.querySelector('.profile__button-add');
-// поля форм
+// Поля форм
 let profileName = document.querySelector('.profile__name');
 let profileJob = document.querySelector('.profile__job');
 let formElement = document.querySelector('.popup__form');
@@ -43,45 +43,33 @@ let jobInput = formElement.querySelector('.popup__form-item_type_job');
 let formAdd = document.querySelector('.popup__form_type_add');
 let cardImage = document.querySelector('.popup__image');
 let cardName = document.querySelector('.popup__place-caption');
-// Сгенерировать новую карту
-function createCard(newCard) {
-  const cardTemplate = document.querySelector('.card-template');
-  let card = cardTemplate.content.cloneNode(true);
-  let placeImage = card.querySelector('.place__image');
-  placeImage.src = newCard.link;
-  placeImage.alt = newCard.name;
-  let nameCard = card.querySelector('.place__name');
-  nameCard.textContent = newCard.name;
-  return card;
-}
-// Рендеринг начальных 6-и карт
-function renderingCards(array) {
-  array.reverse().forEach(item => {
-    cardsArray.prepend(createCard(item));
+const cardTemplate = document.querySelector(".card-template").content;
+// Инициализировать карточку
+function createCard(cardData) {
+  const cardItem = cardTemplate.querySelector(".place").cloneNode(true);
+  cardItem.querySelector(".place__image").src = cardData.link;
+  cardItem.querySelector(".place__image").alt = cardData.name;
+  cardItem.querySelector(".place__name").textContent = cardData.name;
+  // Удалить карту
+  const removeBtn = cardItem.querySelector(".place__button-remove");
+  removeBtn.addEventListener("click", () => cardItem.remove())
+  // Поставить лайк
+  const likeBtn = cardItem.querySelector(".place__button-like");
+    likeBtn.addEventListener("click", () => {
+    likeBtn.classList.toggle("button_type_like-active");
   })
-}
-renderingCards(initialCards);
-// Поставить лайк или удалить или открыть картинку
-cardsArray.addEventListener('click', (evt) => {
-  if (evt.target.classList.contains('place__button-remove')) {
-    let removeCard = evt.target.closest('.place');
-    cardsArray.removeChild(removeCard);
-  }
-  else if (evt.target.classList.contains('button_type_like')) {
-    evt.target.classList.toggle('button_type_like-active');
-  }
-  else if (evt.target.classList.contains('place__image')) {
-    let imageUrl = evt.target.getAttribute('src');
-    let placeName = evt.target.closest('.place').querySelector('.place__name').textContent;
-    viewImage(imageUrl, placeName);
+  // Посмотреть фото
+  cardItem.querySelector(".place__image").addEventListener("click", () => {
     openPopup(popupImage);
-  }
-});
-// Получить данные для разворачивания картинки
-function viewImage(url, name) {
-  cardImage.src = url;
-  cardName.textContent = name;
+    cardImage.src = cardItem.querySelector(".place__image").src;
+    cardName.textContent = cardItem.querySelector(".place__name").textContent;
+  })
+  return cardItem;
 }
+// Сгенерировать начальные карты
+initialCards.reverse().forEach((item) => {
+  addNewCard(createCard(item));
+});
 // Общая функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_status_opened');
@@ -115,13 +103,16 @@ formElement.addEventListener('submit', formSubmitHandler);
 addBtn.addEventListener('click', () => {
   openPopup(popupAdd);
 });
-// Добававление новой карточки
+// Добавление новой карточки в общий список
 formAdd.addEventListener('submit', (evt) => {
-  evt.preventDefault();
+  evt.preventDefault(evt);
   let placeName = formAdd.querySelector('.popup__form-item_type_place-name');
   let imageUrl = formAdd.querySelector('.popup__form-item_type_image-url');
-  renderingCards([{ name: placeName.value , link: imageUrl.value }]);
-  closePopup(popupImage);
+  const card = createCard({ name: placeName.value, link: imageUrl.value });
+  addNewCard(card);
+  closePopup(evt.target.closest('.popup'));
   formAdd.reset();
 });
-
+function addNewCard(cardItem) {
+  cardsArray.prepend(cardItem);
+}

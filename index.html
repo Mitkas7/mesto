@@ -25,20 +25,7 @@
         <button class="profile__button-add button button_type_add" type="button"></button>
       </section>
       <section class="places">
-        <ul class="places__cards">
-          <template class="card-template">
-            <li class="place">
-              <button class="place__button-remove button"></button>
-              <figure class="place__card">
-                <img src="#" alt="#" class="place__image">
-                <figcaption class="place__caption">
-                  <h2 class="place__name"></h2>
-                  <button class="place__button-like button button_type_like" type="button"></button>
-                </figcaption>
-              </figure>
-            </li>
-          </template>
-        </ul>
+        <ul class="places__cards"></ul>
       </section>
     </main>
     <footer class="footer">
@@ -81,6 +68,18 @@
         </figure>
       </div>
     </div>
+    <template class="card-template">
+      <li class="place">
+        <button class="place__button-remove button"></button>
+        <figure class="place__card">
+          <img src="#" alt="#" class="place__image">
+          <figcaption class="place__caption">
+            <h2 class="place__name"></h2>
+            <button class="place__button-like button button_type_like" type="button"></button>
+          </figcaption>
+        </figure>
+      </li>
+    </template>
   </div>
   <script src="js/script.js"></script>
 </body>
