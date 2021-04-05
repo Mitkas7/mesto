@@ -27,22 +27,22 @@ const initialCards = [
  ];
 const cardsArray = document.querySelector('.places__cards');
 // Попапы
-let popupEdit = document.querySelector('.popup_type_edit');
-let popupAdd = document.querySelector('.popup_type_add');
-let popupImage = document.querySelector('.popup_type_image');
+const popupEdit = document.querySelector('.popup_type_edit');
+const popupAdd = document.querySelector('.popup_type_add');
+const popupImage = document.querySelector('.popup_type_image');
 // Кнопки
-let editBtn = document.querySelector('.button_type_edit');
-let saveBtn = document.querySelector('.button_type_save');
-let addBtn = document.querySelector('.profile__button-add');
+const editBtn = document.querySelector('.button_type_edit');
+const saveBtn = document.querySelector('.button_type_save');
+const addBtn = document.querySelector('.profile__button-add');
 // Поля форм
-let profileName = document.querySelector('.profile__name');
-let profileJob = document.querySelector('.profile__job');
-let formElement = document.querySelector('.popup__form');
-let nameInput = formElement.querySelector('.popup__form-item_type_name');
-let jobInput = formElement.querySelector('.popup__form-item_type_job');
-let formAdd = document.querySelector('.popup__form_type_add');
-let cardImage = document.querySelector('.popup__image');
-let cardName = document.querySelector('.popup__place-caption');
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
+const formElement = document.querySelector('.popup__form');
+const nameInput = formElement.querySelector('.popup__form-item_type_name');
+const jobInput = formElement.querySelector('.popup__form-item_type_job');
+const formAdd = document.querySelector('.popup__form_type_add');
+const cardImage = document.querySelector('.popup__image');
+const cardName = document.querySelector('.popup__place-caption');
 const cardTemplate = document.querySelector(".card-template").content;
 // Инициализировать карточку
 function createCard(cardData) {
@@ -106,8 +106,8 @@ addBtn.addEventListener('click', () => {
 // Добавление новой карточки в общий список
 formAdd.addEventListener('submit', (evt) => {
   evt.preventDefault(evt);
-  let placeName = formAdd.querySelector('.popup__form-item_type_place-name');
-  let imageUrl = formAdd.querySelector('.popup__form-item_type_image-url');
+  const placeName = formAdd.querySelector('.popup__form-item_type_place-name');
+  const imageUrl = formAdd.querySelector('.popup__form-item_type_image-url');
   const card = createCard({ name: placeName.value, link: imageUrl.value });
   addNewCard(card);
   closePopup(evt.target.closest('.popup'));
