@@ -41,28 +41,30 @@ const formElement = document.querySelector('.popup__form');
 const nameInput = formElement.querySelector('.popup__form-item_type_name');
 const jobInput = formElement.querySelector('.popup__form-item_type_job');
 const formAdd = document.querySelector('.popup__form_type_add');
-const cardImage = document.querySelector('.popup__image');
-const cardName = document.querySelector('.popup__place-caption');
-const cardTemplate = document.querySelector(".card-template").content;
+const popupPic = document.querySelector('.popup__image');
+const popupName = document.querySelector('.popup__place-caption');
+const cardTemplate = document.querySelector('.card-template').content;
 // Инициализировать карточку
 function createCard(cardData) {
-  const cardItem = cardTemplate.querySelector(".place").cloneNode(true);
-  cardItem.querySelector(".place__image").src = cardData.link;
-  cardItem.querySelector(".place__image").alt = cardData.name;
-  cardItem.querySelector(".place__name").textContent = cardData.name;
+  const cardItem = cardTemplate.querySelector('.place').cloneNode(true);
+  const cardImage = cardItem.querySelector('.place__image');
+  const cardName = cardItem.querySelector('.place__name');
+  cardImage.src = cardData.link;
+  cardImage.alt = cardData.name;
+  cardName.textContent = cardData.name;
   // Удалить карту
-  const removeBtn = cardItem.querySelector(".place__button-remove");
-  removeBtn.addEventListener("click", () => cardItem.remove())
+  const removeBtn = cardItem.querySelector('.place__button-remove');
+  removeBtn.addEventListener('click', () => cardItem.remove())
   // Поставить лайк
-  const likeBtn = cardItem.querySelector(".place__button-like");
-    likeBtn.addEventListener("click", () => {
-    likeBtn.classList.toggle("button_type_like-active");
+  const likeBtn = cardItem.querySelector('.place__button-like');
+  likeBtn.addEventListener('click', () => {
+    likeBtn.classList.toggle('button_type_like-active');
   })
   // Посмотреть фото
-  cardItem.querySelector(".place__image").addEventListener("click", () => {
+  cardImage.addEventListener('click', () => {
     openPopup(popupImage);
-    cardImage.src = cardItem.querySelector(".place__image").src;
-    cardName.textContent = cardItem.querySelector(".place__name").textContent;
+    popupPic.src = cardImage.src;
+    popupName.textContent = cardName.textContent;
   })
   return cardItem;
 }
