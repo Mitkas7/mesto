@@ -84,7 +84,7 @@ function closePopup(popup) {
 }
 closeBtnsArray.forEach((closeBtn) => {
   closeBtn.addEventListener('click', (event) => {
-    const popup = event.target.parentNode.parentNode;
+    const popup = event.target.closest('.popup_status_opened');
     closePopup(popup);
   });
 });
