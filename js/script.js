@@ -48,10 +48,26 @@ const closeBtnsArray = document.querySelectorAll('.popup__button-close');
 // Общая функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_status_opened');
+  setListener(popup);
 }
+// Функция добавления обработчиков событий на попапы
+function setListener(popup) {
+  popup.addEventListener('click', alternateClosing);
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  })
+}
+// Функция удаления обработчиков событий с попапов
+function delListener(popup) {
+  popup.removeEventListener('click', alternateClosing);
+}
+
 // Общая функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_status_opened');
+  delListener(popup);
 }
 closeBtnsArray.forEach((closeBtn) => {
   closeBtn.addEventListener('click', (event) => {
@@ -59,6 +75,13 @@ closeBtnsArray.forEach((closeBtn) => {
     closePopup(popup);
   });
 });
+// Функция закрытия попапов по клику на оверлей
+function alternateClosing(evt) {
+  const openedPopup = document.querySelector('.popup_status_opened');
+  if (evt.target === openedPopup) {
+    closePopup(openedPopup);
+  }
+}
 // Функция инициализации карточки
 function createCard(cardData) {
   const cardItem = cardTemplate.querySelector('.place').cloneNode(true);
@@ -118,6 +141,21 @@ formAdd.addEventListener('submit', (evt) => {
   closePopup(evt.target.closest('.popup'));
   formAdd.reset();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // Сгенерировать начальные карты
 initialCards.reverse().forEach((item) => {
   addNewCard(createCard(item));
