@@ -37,9 +37,9 @@ const addBtn = document.querySelector('.profile__button-add');
 // Поля форм
 const profileName = document.querySelector('.profile__name');
 const profileJob = document.querySelector('.profile__job');
-const formElement = document.querySelector('.popup__form');
-const nameInput = formElement.querySelector('.popup__form-item_type_name');
-const jobInput = formElement.querySelector('.popup__form-item_type_job');
+const form = document.querySelector('.popup__form');
+const nameInput = form.querySelector('.popup__form-input_type_name');
+const jobInput = form.querySelector('.popup__form-input_type_job');
 const formAdd = document.querySelector('.popup__form_type_add');
 const popupPic = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__place-caption');
@@ -48,10 +48,25 @@ const closeBtnsArray = document.querySelectorAll('.popup__button-close');
 // Общая функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_status_opened');
+  setListener(popup);
+}
+// Функция закрытия попапа по кнопке esc
+function setListener(popup) {
+  popup.addEventListener('click', alternateClosing);
+  document.addEventListener('keydown', (evt) => {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  })
+}
+// Функция удаления обработчиков событий с попапов
+function delListener(popup) {
+  popup.removeEventListener('click', alternateClosing);
 }
 // Общая функция закрытия попапов
 function closePopup(popup) {
   popup.classList.remove('popup_status_opened');
+  delListener(popup);
 }
 closeBtnsArray.forEach((closeBtn) => {
   closeBtn.addEventListener('click', (event) => {
@@ -59,6 +74,13 @@ closeBtnsArray.forEach((closeBtn) => {
     closePopup(popup);
   });
 });
+// Функция закрытия попапов по клику на оверлей
+function alternateClosing(evt) {
+  const openedPopup = document.querySelector('.popup_status_opened');
+  if (evt.target === openedPopup) {
+    closePopup(openedPopup);
+  }
+}
 // Функция инициализации карточки
 function createCard(cardData) {
   const cardItem = cardTemplate.querySelector('.place').cloneNode(true);
@@ -97,7 +119,7 @@ function addNewCard(cardItem) {
 }
 // Обработчики событий
 // для сохранения новых данных профиля
-formElement.addEventListener('submit', formSubmitHandler);
+form.addEventListener('submit', formSubmitHandler);
 // для открытия попапа редактирования профиля
 editBtn.addEventListener('click', () => {
   openPopup(popupEdit);
@@ -111,8 +133,8 @@ addBtn.addEventListener('click', () => {
 // для добавления новой карточки на страницу
 formAdd.addEventListener('submit', (evt) => {
   evt.preventDefault(evt);
-  const placeName = formAdd.querySelector('.popup__form-item_type_place-name');
-  const imageUrl = formAdd.querySelector('.popup__form-item_type_image-url');
+  const placeName = formAdd.querySelector('.popup__form-input_type_place-name');
+  const imageUrl = formAdd.querySelector('.popup__form-input_type_image-url');
   const card = createCard({ name: placeName.value, link: imageUrl.value });
   addNewCard(card);
   closePopup(evt.target.closest('.popup'));
