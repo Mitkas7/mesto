@@ -2,9 +2,9 @@
 function setEventListeners(formElement, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass) {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
+  toggleButtonState(inputList, buttonElement, inactiveButtonClass);
   formElement.addEventListener('submit', function (evt) {
     evt.preventDefault();
-    toggleButtonState(inputList, buttonElement, inactiveButtonClass);
   });
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
@@ -35,6 +35,10 @@ function checkInputValidity(formElement, inputElement, inputErrorClass, errorCla
     hideError(formElement, inputElement, inputErrorClass, errorClass);
   }
 };
+//
+//
+
+//
 // Функция отключения кнопки отправки формы
 function toggleButtonState(inputList, buttonElement, inactiveButtonClass) {
   const isValid = inputList.some((inputElement) => !inputElement.validity.valid);
