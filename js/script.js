@@ -51,17 +51,19 @@ function openPopup(popup) {
   setListener(popup);
 }
 // Функция закрытия попапа по кнопке esc
-function setListener(popup) {
-  popup.addEventListener('click', alternateClosing);
-  document.addEventListener('keydown', (evt) => {
-    if (evt.key === 'Escape') {
-      closePopup(popup);
-    }
-  })
+function closeByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_status_opened');
+    closePopup(openedPopup);
+  }
+}
+// Функция добавления слушателя событий закрытия по esc
+function setListener() {
+  document.addEventListener('keydown', closeByEscape);
 }
 // Функция удаления обработчиков событий с попапов
-function delListener(popup) {
-  popup.removeEventListener('click', alternateClosing);
+function delListener() {
+  document.removeEventListener('keydown', closeByEscape);
 }
 // Общая функция закрытия попапов
 function closePopup(popup) {
