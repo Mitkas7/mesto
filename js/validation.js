@@ -2,11 +2,14 @@
 function setEventListeners(formElement, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass) {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
   const buttonElement = formElement.querySelector(submitButtonSelector);
-  disableButton(inputList, buttonElement, inactiveButtonClass);
+  formElement.addEventListener('submit', function (evt) {
+    evt.preventDefault();
+    toggleButtonState(inputList, buttonElement, inactiveButtonClass);
+  });
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement, inputErrorClass, errorClass);
-      disableButton(inputList, buttonElement, inactiveButtonClass);
+      toggleButtonState(inputList, buttonElement, inactiveButtonClass);
     });
   });
 };
@@ -33,7 +36,7 @@ function checkInputValidity(formElement, inputElement, inputErrorClass, errorCla
   }
 };
 // Функция отключения кнопки отправки формы
-function disableButton(inputList, buttonElement, inactiveButtonClass) {
+function toggleButtonState(inputList, buttonElement, inactiveButtonClass) {
   const isValid = inputList.some((inputElement) => !inputElement.validity.valid);
   if (isValid) {
     buttonElement.setAttribute('disabled', true);
@@ -47,9 +50,6 @@ const enableValidation = ({
   formSelector, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass }) => {
   const formList = Array.from(document.querySelectorAll(formSelector));
   formList.forEach((formElement) => {
-    formElement.addEventListener('submit', function (evt) {
-      evt.preventDefault();
-    });
     setEventListeners(formElement, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass);
   });
 }
