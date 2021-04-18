@@ -1,3 +1,4 @@
+'use strict'
 // Функция добавления обработчика событий
 function setEventListeners(formElement, inputSelector, submitButtonSelector, inactiveButtonClass, inputErrorClass, errorClass) {
   const inputList = Array.from(formElement.querySelectorAll(inputSelector));
