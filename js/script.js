@@ -20,8 +20,8 @@ const popupPic = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__place-caption');
 const cardTemplate = document.querySelector('.card-template').content;
 // const closeBtnsArray = document.querySelectorAll('.popup__button-close');
-const placeName = formAdd.querySelector('.popup__form-input_type_place-name');
-const imageUrl = formAdd.querySelector('.popup__form-input_type_image-url');
+const placeName = formAdd.querySelector('.popup__form-input_type_place-name'); // - название места инпут
+const imageUrl = formAdd.querySelector('.popup__form-input_type_image-url'); //- ссылка на фото для инпута
 // Общая функция открытия попапов
 function openPopup(popup) {
   popup.classList.add('popup_status_opened');
@@ -103,8 +103,8 @@ function formSubmitHandler(evt) {
   closePopup(popupEdit);
 }
 // Функция добавления карты
-function addNewCard(cardItem) {
-  cardsArray.prepend(cardItem);
+function addNewCard(addingCard) {
+  cardsArray.prepend(addingCard);
 }
 // Обработчики событий
 // для сохранения новых данных профиля
@@ -115,18 +115,26 @@ editBtn.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 })
+// функция добавления новой карты на страницу
+function saveNewCard(evt) {
+  evt.preventDefault(evt);
+  const newCard = {
+    name: placeName.value,
+    link: imageUrl.value,
+    alt: placeName.value,
+  }
+  console.log(typeof newCard);
+  addNewCard(newCard);
+  closePopup(evt.target.closest('.popup'));
+  formAdd.reset();
+}
+
 // для открытия попапа добавления карточки
 addBtn.addEventListener('click', () => {
   openPopup(popupAdd);
 });
 // для добавления новой карточки на страницу
-formAdd.addEventListener('submit', (evt) => {
-  evt.preventDefault(evt);
-  const card = createCard({ name: placeName.value, link: imageUrl.value });
-  addNewCard(card);
-  closePopup(evt.target.closest('.popup'));
-  formAdd.reset();
-});
+formAdd.addEventListener('submit', saveNewCard);
 // Сгенерировать начальные карты
 initialCards.forEach((data) => {
   const card = new Card(data);
