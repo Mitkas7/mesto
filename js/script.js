@@ -66,7 +66,7 @@ class Card {
     this._link = cardData.link;
     this._cardSelector = cardSelector;
   }
-  _getView() {
+  getView() {
     this._element = cardTemplate.querySelector('.place').cloneNode(true);
     const cardImage = this._element.querySelector('.place__image');
     const cardName = this._element.querySelector('.place__name');
@@ -103,10 +103,7 @@ function formSubmitHandler(evt) {
   profileJob.textContent = jobInput.value;
   closePopup(popupEdit);
 }
-// Функция добавления карты
-function addNewCard(cardItem) {
-  cardsArray.prepend(cardItem);
-}
+
 // Обработчики событий
 // для сохранения новых данных профиля
 form.addEventListener('submit', formSubmitHandler);
@@ -116,6 +113,13 @@ editBtn.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 })
+
+// для открытия попапа добавления карточки
+addBtn.addEventListener('click', () => {
+  openPopup(popupAdd);
+});
+// для добавления новой карточки на страницу
+formAdd.addEventListener('submit', saveNewCard);
 // функция добавления новой карты на страницу
 function saveNewCard(evt) {
   evt.preventDefault(evt);
@@ -128,16 +132,23 @@ function saveNewCard(evt) {
   closePopup(evt.target.closest('.popup'));
   formAdd.reset();
 }
+// Функция добавления карты в общий список
+function addNewCard(cardItem) {
+  cardsArray.prepend(createCard(cardItem));
+}
+// функция создания карты
+function createCard(item) {
+  const card = new Card(item, '.list-item-template');
+  const cardList = card.getView();
+  return cardList;
+}
 
-// для открытия попапа добавления карточки
-addBtn.addEventListener('click', () => {
-  openPopup(popupAdd);
-});
-// для добавления новой карточки на страницу
-formAdd.addEventListener('submit', saveNewCard);
+
+
+
 // Сгенерировать начальные карты
 initialCards.forEach((data) => {
   const card = new Card(data);
-  const cardElement = card._getView();
+  const cardElement = card.getView();
   cardsArray.prepend(cardElement);
 });
