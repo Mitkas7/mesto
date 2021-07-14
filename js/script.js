@@ -61,32 +61,33 @@ popups.forEach((popup) => {
 })
 // Функция создания карточки
 class Card {
-  constructor(cardData) {
-    this.name = cardData.name;
-    this.link = cardData.link;
+  constructor(cardData, cardSelector) {
+    this._name = cardData.name;
+    this._link = cardData.link;
+    this._cardSelector = cardSelector;
   }
   _getView() {
-    this.element = cardTemplate.querySelector('.place').cloneNode(true);
-    const cardImage = this.element.querySelector('.place__image');
-    const cardName = this.element.querySelector('.place__name');
-    cardImage.src = this.link;
-    cardImage.alt = this.name;
-    cardName.textContent = this.name;
+    this._element = cardTemplate.querySelector('.place').cloneNode(true);
+    const cardImage = this._element.querySelector('.place__image');
+    const cardName = this._element.querySelector('.place__name');
+    cardImage.src = this._link;
+    cardImage.alt = this._name;
+    cardName.textContent = this._name;
     this.cardImage = cardImage;
     this.cardName = cardName;
     this._setEventListeners();
-    return this.element;
+    return this._element;
   }
   _setEventListeners() {
-    this.element.querySelector('.place__button-remove').addEventListener('click', () => this._removeCard());
-    this.element.querySelector('.place__button-like').addEventListener('click', () => this._likeCard());
-    this.element.querySelector('.place__image').addEventListener('click', () => this._openCardPreview());
+    this._element.querySelector('.place__button-remove').addEventListener('click', () => this._removeCard());
+    this._element.querySelector('.place__button-like').addEventListener('click', () => this._likeCard());
+    this._element.querySelector('.place__image').addEventListener('click', () => this._openCardPreview());
   }
   _removeCard() {
-    this.element.remove();
+    this._element.remove();
   }
   _likeCard() {
-    this.element.querySelector('.place__button-like').classList.toggle('button_type_like-active');
+    this._element.querySelector('.place__button-like').classList.toggle('button_type_like-active');
   }
   _openCardPreview() {
     openPopup(popupImage);
@@ -103,8 +104,8 @@ function formSubmitHandler(evt) {
   closePopup(popupEdit);
 }
 // Функция добавления карты
-function addNewCard(addingCard) {
-  cardsArray.prepend(addingCard);
+function addNewCard(cardItem) {
+  cardsArray.prepend(cardItem);
 }
 // Обработчики событий
 // для сохранения новых данных профиля
@@ -123,7 +124,6 @@ function saveNewCard(evt) {
     link: imageUrl.value,
     alt: placeName.value,
   }
-  console.log(typeof newCard);
   addNewCard(newCard);
   closePopup(evt.target.closest('.popup'));
   formAdd.reset();

@@ -1,9 +1,15 @@
 // Функция создания карточки
 export class Card {
-  constructor(cardData) {
+  constructor(cardData, cardSelector) {
     this.name = cardData.name;
     this.link = cardData.link;
+    this.cardSelector = cardSelector;
   }
+  _getCardTemplate(){
+    const cardTemplate = document.querySelector(this.cardSelector).content.querySelector('.place').cloneNode(true);
+    return cardTemplate;
+  }
+
   getView() {
     this.element = cardTemplate.querySelector('.place').cloneNode(true);
     const cardImage = this.element.querySelector('.place__image');
