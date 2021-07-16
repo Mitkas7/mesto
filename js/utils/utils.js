@@ -4,7 +4,7 @@ import {
   nameInput, jobInput, placeName,
   imageUrl, profileName, profileJob, cardsArray} from '.././constants.js';
 import { Card } from '../card.js';
-import { FormValidator, popupAddValidator, popupEditValidator } from '../formValidator.js';
+import { popupAddValidator, popupEditValidator } from '../formValidator.js';
 // Общая функция открытия попапов
 export function openPopup(popup) {
   popup.classList.add('popup_status_opened');
@@ -61,7 +61,7 @@ function saveNewCard(evt) {
     alt: placeName.value,
   }
   addNewCard(newCard);
-  closePopup(evt.target.closest('.popup'));
+  closePopup(evt.target.closest('.popup_type_add'));
   formAddCard.reset();
 }
 // Функция сохранения новых данных профиля
@@ -90,6 +90,5 @@ editBtn.addEventListener('click', () => {
   nameInput.value = profileName.textContent;
   jobInput.value = profileJob.textContent;
 })
-
 // для добавления новой карточки на страницу
 formAddCard.addEventListener('submit', saveNewCard);
