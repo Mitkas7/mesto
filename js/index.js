@@ -1,6 +1,6 @@
 import { Card } from './card.js';
 import { initialCards } from './initialcards.js';
-import { config, profileName, profileJob, form, nameInput, jobInput, formAdd, placeName, imageUrl, FormValidator } from './formValidator.js';
+import { config, FormValidator } from './formValidator.js';
 const cardsArray = document.querySelector('.places__cards');
 // Попапы
 const popupEdit = document.querySelector('.popup_type_edit');
@@ -9,6 +9,15 @@ const popupAdd = document.querySelector('.popup_type_add');
 const editBtn = document.querySelector('.button_type_edit');
 const saveBtn = document.querySelector('.button_type_save');
 const addBtn = document.querySelector('.profile__button-add');
+// инпуты
+const profileName = document.querySelector('.profile__name');
+const profileJob = document.querySelector('.profile__job');
+const form = document.querySelector('.popup__form');
+const nameInput = form.querySelector('.popup__form-input_type_name');
+const jobInput = form.querySelector('.popup__form-input_type_job');
+const formAdd = document.querySelector('.popup__form_type_add');
+const placeName = formAdd.querySelector('.popup__form-input_type_place-name'); // - название места инпут
+const imageUrl = formAdd.querySelector('.popup__form-input_type_image-url'); //- ссылка на фото для инпута
 // Общая функция открытия попапов
 export function openPopup(popup) {
   popup.classList.add('popup_status_opened');
