@@ -13,6 +13,7 @@ function setEventListeners(formElement, inputSelector, submitButtonSelector, ina
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement, inputErrorClass, errorClass);
       toggleButtonState(inputList, buttonElement, inactiveButtonClass);
+      console.log(inputElement);
     });
   });
 };

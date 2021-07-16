@@ -1,23 +1,14 @@
 import { Card } from './card.js';
 import { initialCards } from './initialcards.js';
+import { config, profileName, profileJob, form, nameInput, jobInput, formAdd, placeName, imageUrl, FormValidator } from './formValidator.js';
 const cardsArray = document.querySelector('.places__cards');
 // Попапы
 const popupEdit = document.querySelector('.popup_type_edit');
 const popupAdd = document.querySelector('.popup_type_add');
-
 // Кнопки
 const editBtn = document.querySelector('.button_type_edit');
 const saveBtn = document.querySelector('.button_type_save');
 const addBtn = document.querySelector('.profile__button-add');
-// Поля форм
-const profileName = document.querySelector('.profile__name');
-const profileJob = document.querySelector('.profile__job');
-const form = document.querySelector('.popup__form');
-const nameInput = form.querySelector('.popup__form-input_type_name');
-const jobInput = form.querySelector('.popup__form-input_type_job');
-const formAdd = document.querySelector('.popup__form_type_add');
-const placeName = formAdd.querySelector('.popup__form-input_type_place-name'); // - название места инпута
-const imageUrl = formAdd.querySelector('.popup__form-input_type_image-url'); //- ссылка на фото для инпута
 // Общая функция открытия попапов
 export function openPopup(popup) {
   popup.classList.add('popup_status_opened');
@@ -100,13 +91,15 @@ function createCard(item) {
   const cardList = card.getView();
   return cardList;
 }
-
-
-
-
 // Сгенерировать начальные карты
 initialCards.forEach((data) => {
   const card = new Card(data);
   const cardElement = card.getView();
   cardsArray.prepend(cardElement);
 });
+
+const popupEditValidator = new FormValidator(config, popupEdit);
+popupEditValidator.enableValidation();
+const popuupAddValidator = new FormValidator(config, popupAdd);
+popuupAddValidator.enableValidation();
+
