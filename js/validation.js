@@ -8,12 +8,12 @@ function setEventListeners(formElement, inputSelector, submitButtonSelector, ina
     evt.preventDefault();
     buttonElement.setAttribute('disabled', true);
     buttonElement.classList.add(inactiveButtonClass);
-    console.log(buttonElement);
   });
   inputList.forEach((inputElement) => {
     inputElement.addEventListener('input', function () {
       checkInputValidity(formElement, inputElement, inputErrorClass, errorClass);
       toggleButtonState(inputList, buttonElement, inactiveButtonClass);
+      console.log(inputElement);
     });
   });
 };
