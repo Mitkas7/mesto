@@ -1,4 +1,4 @@
-import {openPopup} from './index.js'
+import {openPopup} from './utils/utils.js'
 const popupImage = document.querySelector('.popup_type_image');
 const popupPic = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__place-caption');
@@ -7,10 +7,11 @@ export class Card {
   constructor(cardData, cardSelector) {
     this._name = cardData.name;
     this._link = cardData.link;
+    this._cardTemplate = cardTemplate;
     this._cardSelector = cardSelector;
   }
   getView() {
-    this._element = cardTemplate.querySelector('.place').cloneNode(true);
+    this._element = this._cardTemplate.querySelector('.place').cloneNode(true);
     const cardImage = this._element.querySelector('.place__image');
     const cardName = this._element.querySelector('.place__name');
     cardImage.src = this._link;

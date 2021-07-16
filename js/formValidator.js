@@ -1,3 +1,4 @@
+import { popupAdd, popupEdit } from "./constants.js";
 export const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__form-input',
@@ -6,15 +7,6 @@ export const config = {
   inputErrorClass: 'popup__input-error_status_active',
   errorClass: 'popup__input-error'
 };
-export const profileName = document.querySelector('.profile__name');
-export const profileJob = document.querySelector('.profile__job');
-export const form = document.querySelector('.popup__form');
-export const nameInput = form.querySelector('.popup__form-input_type_name');
-export const jobInput = form.querySelector('.popup__form-input_type_job');
-export const formAdd = document.querySelector('.popup__form_type_add');
-export const placeName = formAdd.querySelector('.popup__form-input_type_place-name'); // - название места инпут
-export const imageUrl = formAdd.querySelector('.popup__form-input_type_image-url'); //- ссылка на фото для инпута
-
 export class FormValidator {
   constructor(config, formSelector){
     this._config = config;
@@ -73,4 +65,18 @@ export class FormValidator {
   enableValidation = () => {
     this._setEventListeners();
   }
+  resetInputsErrors() {
+    this._inputsList.forEach((inputElement) => {
+      this._hideError(inputElement);
+    });
+  }
+  resetForm() {
+    this._inputsList.forEach((inputElement) => {
+      this._checkInputValidty(inputElement);
+      this._toggleButtonState();
+    });
+  }
 }
+// Валидаторы
+export const popupAddValidator = new FormValidator(config, popupAdd);
+export const popupEditValidator = new FormValidator(config, popupEdit);
