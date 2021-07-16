@@ -1,3 +1,4 @@
+import { popupAdd, popupEdit } from "./constants.js";
 export const config = {
   formSelector: '.popup__form',
   inputSelector: '.popup__form-input',
@@ -64,4 +65,18 @@ export class FormValidator {
   enableValidation = () => {
     this._setEventListeners();
   }
+  resetInputsErrors() {
+    this._inputsList.forEach((inputElement) => {
+      this._hideError(inputElement);
+    });
+  }
+  resetForm() {
+    this._inputsList.forEach((inputElement) => {
+      this._checkInputValidty(inputElement);
+      this._toggleButtonState();
+    });
+  }
 }
+// Валидаторы
+export const popupAddValidator = new FormValidator(config, popupAdd);
+export const popupEditValidator = new FormValidator(config, popupEdit);
