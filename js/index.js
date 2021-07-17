@@ -49,8 +49,7 @@ formEditProfile.addEventListener('submit', submitEditProfileForm);
 // для открытия попапа добавления карточки
 addBtn.addEventListener('click', () => {
   openPopup(popupAdd);
-  placeName.value = '';
-  imageUrl.value = '';
+  formAddCard.reset();
   popupAddValidator.resetForm();
   popupAddValidator.resetInputsErrors();
 });
