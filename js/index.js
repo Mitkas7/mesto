@@ -16,7 +16,7 @@ popupEditValidator.enableValidation();
 popupAddValidator.enableValidation();
 // функция создания карты
 function createCard(item) {
-  const card = new Card(item, '.list-item-template');
+  const card = new Card(item, '.card-template');
   const createdCard = card.getView();
   return createdCard;
 }
