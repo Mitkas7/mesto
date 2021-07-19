@@ -62,4 +62,3 @@ editBtn.addEventListener('click', () => {
 })
 // для добавления новой карточки на страницу
 formAddCard.addEventListener('submit', saveNewCard);
-;
