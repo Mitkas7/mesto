@@ -1,23 +1,6 @@
-// Общая функция открытия попапов
-export function openPopup(popup) {
-  popup.classList.add('popup_status_opened');
-  setListener(popup);
-}
-// Общая функция закрытия попапов
-export function closePopup(popup) {
-  popup.classList.remove('popup_status_opened');
-  removeCloseListener(popup);
-}
 // Функция добавления слушателя событий закрытия по esc
 function setListener() {
   document.addEventListener('keydown', closeByEscape);
-}
-// Функция закрытия попапа по кнопке esc
-function closeByEscape(evt) {
-  if (evt.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_status_opened');
-    closePopup(openedPopup);
-  }
 }
 // Функция удаления обработчиков событий с попапов
 function removeCloseListener() {
