@@ -3,14 +3,23 @@ import { cardsArray, addBtn,
 popupAdd, popupEdit, placeName, imageUrl,
 nameInput, jobInput, profileName, profileJob} from './constants.js';
 import { Card } from './card.js';
+import Section from './Section.js';
+import Popup from './Popup.js';
 import { initialCards } from './initialcards.js';
-import { openPopup, closePopup } from './utils/utils.js';
+// import { openPopup, closePopup } from './utils/utils.js';
 import { popupEditValidator, popupAddValidator} from './formValidator.js';
 // Сгенерировать начальные карты
-initialCards.forEach((data) => {
-  const cardElement = createCard(data);
-  cardsArray.prepend(cardElement);
-});
+// initialCards.forEach((data) => {
+//   const cardElement = createCard(data);
+//   cardsArray.prepend(cardElement);
+// });
+const cardList = new Section({
+  items: initialCards,
+  renderer: (item) => {
+    cardList.addItem(createCard(item));
+    }
+}, '.places__cards');
+cardList.render();
 //запуск валидатора
 popupEditValidator.enableValidation();
 popupAddValidator.enableValidation();
@@ -47,18 +56,18 @@ function submitEditProfileForm(evt) {
 // для сохранения новых данных профиля
 formEditProfile.addEventListener('submit', submitEditProfileForm);
 // для открытия попапа добавления карточки
-addBtn.addEventListener('click', () => {
-  openPopup(popupAdd);
-  formAddCard.reset();
-  popupAddValidator.resetForm();
-  popupAddValidator.resetInputsErrors();
-});
+// addBtn.addEventListener('click', () => {
+//   openPopup(popupAdd);
+//   formAddCard.reset();
+//   popupAddValidator.resetForm();
+//   popupAddValidator.resetInputsErrors();
+// });
 // для открытия попапа редактирования профиля
-editBtn.addEventListener('click', () => {
-  openPopup(popupEdit);
-  popupEditValidator.resetInputsErrors();
-  nameInput.value = profileName.textContent;
-  jobInput.value = profileJob.textContent;
-})
+// editBtn.addEventListener('click', () => {
+//   openPopup(popupEdit);
+//   popupEditValidator.resetInputsErrors();
+//   nameInput.value = profileName.textContent;
+//   jobInput.value = profileJob.textContent;
+// })
 // для добавления новой карточки на страницу
 formAddCard.addEventListener('submit', saveNewCard);

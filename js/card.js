@@ -1,4 +1,4 @@
-import {openPopup} from './utils/utils.js'
+// import {openPopup} from './utils/utils.js'
 const popupImage = document.querySelector('.popup_type_image');
 const popupPic = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__place-caption');
