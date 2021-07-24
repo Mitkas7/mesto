@@ -76,6 +76,9 @@ export class FormValidator {
       this._toggleButtonState();
     });
   }
+  disableSubmitButton() {
+    this._toggleButtonState();
+  }
 }
 // Валидаторы
 export const popupAddValidator = new FormValidator(config, popupAdd);

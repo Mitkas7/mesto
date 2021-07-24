@@ -1,4 +1,3 @@
-
 import Card from './Card.js';
 import Section from './Section.js';
 import UserInfo from './UserInfo.js';
@@ -6,11 +5,7 @@ import PopupWithForm from './PopupWithForm.js';
 import PopupWithImage from './PopupWithImage.js';
 import { initialCards } from './initialcards.js';
 import { popupEditValidator, popupAddValidator } from './formValidator.js';
-import { cardsArray, addBtn, editBtn,
-         formAddCard, formEditProfile,
-         popupAdd, popupEdit, placeName,
-         imageUrl, nameInput, jobInput,
-         profileName, profileJob } from './constants.js';
+import { cardsArray, addBtn, editBtn, placeName, imageUrl, nameInput, jobInput, formAddCard } from './constants.js';
 // Сгенерировать начальные карты
 const cardList = new Section({
   items: initialCards,
@@ -52,34 +47,22 @@ addBtn.addEventListener('click',() => {
   addCardPopup.open();
   placeName.value = '';
   imageUrl.value = '';
-  popupAddValidator.resetForm();
+  formAddCard.reset();
+  popupAddValidator.disableSubmitButton();
 });
 // сохранение данных форм добавленитя карты и доабвление ее непосредственно
 function submitAddCardForm(data) {
   const newCard = {
-    name: placeName.value,
-    link: imageUrl.value,
-    alt: placeName.value,
+    name: data.placeName,
+    link: data.imageUrl,
+    alt: data.placeName,
   }
+  addNewCard(newCard);
 }
-// функция добавления новой карты на страницу
-// function saveNewCard(evt) {
-//   evt.preventDefault(evt);
-//   const newCard = {
-//     name: placeName.value,
-//     link: imageUrl.value,
-//     alt: placeName.value,
-//   }
-//   addNewCard(newCard);
-//   closePopup(evt.target.closest('.popup_type_add'));
-//   formAddCard.reset();
-// }
-
-
-
 //запуск валидатора форм
 popupEditValidator.enableValidation();
 popupAddValidator.enableValidation();
+
 // функция создания карты
 function createCard(item) {
   const card = new Card(item, '.card-template', () => {
@@ -92,29 +75,3 @@ function createCard(item) {
 function addNewCard(cardItem) {
   cardsArray.prepend(createCard(cardItem));
 }
-// // функция добавления новой карты на страницу
-// function saveNewCard(evt) {
-//   evt.preventDefault(evt);
-//   const newCard = {
-//     name: placeName.value,
-//     link: imageUrl.value,
-//     alt: placeName.value,
-//   }
-//   addNewCard(newCard);
-//   closePopup(evt.target.closest('.popup_type_add'));
-//   formAddCard.reset();
-// }
-// Функция сохранения новых данных профиля
-// function submitEditProfileForm(evt) {
-//   evt.preventDefault();
-//   profileName.textContent = nameInput.value;
-//   profileJob.textContent = jobInput.value;
-//   closePopup(popupEdit);
-// }
-
-// Обработчики событий
-// для сохранения новых данных профиля
-// formEditProfile.addEventListener('submit', submitEditProfileForm);
-
-// для добавления новой карточки на страницу
-// formAddCard.addEventListener('submit', saveNewCard);
