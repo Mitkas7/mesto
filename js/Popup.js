@@ -1,9 +1,7 @@
-const escape = 'Escape';
 export default class Popup {
-  constructor(popupSelector) {
+  constructor(popupSelector, handleCardClick) {
     this._popupSelector = document.querySelector(popupSelector);
     this._handleEscClose = this._handleEscClose.bind(this);
-    this._escape = escape;
   }
   open() {
     this._popupSelector.classList.add('popup_status_opened');
@@ -15,11 +13,18 @@ export default class Popup {
   }
   setEventListeners(){
     this._popupSelector.querySelector('.popup__button-close').addEventListener('click', this.close());
-    this._popupSelector.addEventListener('mousedown', this.close());
+    this._popupSelector.addEventListener('mousedown', this._handleOverlayClose.bind(this));
+
   }
-  _handleEscClose() {
+  _handleEscClose(evt) {
     if (evt.key === 'Escape') {
-      this._close();
+      this.close();
+    }
+  }
+  _handleOverlayClose(evt) {
+    const openedPopup = document.querySelector('.popup_status_opened');
+    if (evt.target === openedPopup) {
+      this.close();
     }
   }
 }

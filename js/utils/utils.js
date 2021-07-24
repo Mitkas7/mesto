@@ -1,11 +1,3 @@
-// Функция добавления слушателя событий закрытия по esc
-function setListener() {
-  document.addEventListener('keydown', closeByEscape);
-}
-// Функция удаления обработчиков событий с попапов
-function removeCloseListener() {
-  document.removeEventListener('keydown', closeByEscape);
-}
 // закрытие попапов по кнопке закрытия
 const popups = document.querySelectorAll('.popup');
 popups.forEach((popup) => {
