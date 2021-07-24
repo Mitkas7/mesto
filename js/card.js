@@ -1,12 +1,13 @@
-// import {openPopup} from './utils/utils.js'
+
 const popupImage = document.querySelector('.popup_type_image');
 const popupPic = document.querySelector('.popup__image');
 const popupName = document.querySelector('.popup__place-caption');
-export class Card {
-  constructor(cardData, cardSelector) {
+export default class Card {
+  constructor(cardData, cardSelector, handleCardClick) {
     this._name = cardData.name;
     this._link = cardData.link;
     this._cardSelector = cardSelector;
+    this._handleCardClick = handleCardClick;
   }
   getView() {
     const cardTemplate = document.querySelector(this._cardSelector).content;
@@ -24,7 +25,7 @@ export class Card {
   _setEventListeners() {
     this._element.querySelector('.place__button-remove').addEventListener('click', () => this._removeCard());
     this._element.querySelector('.place__button-like').addEventListener('click', () => this._likeCard());
-    this._element.querySelector('.place__image').addEventListener('click', () => this._openCardPreview());
+    this._element.querySelector('.place__image').addEventListener('click', () => this._handleCardClick());
   }
   _removeCard() {
     this._element.remove();
