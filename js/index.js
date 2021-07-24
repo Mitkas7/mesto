@@ -4,15 +4,11 @@ popupAdd, popupEdit, placeName, imageUrl,
 nameInput, jobInput, profileName, profileJob} from './constants.js';
 import { Card } from './card.js';
 import Section from './Section.js';
-import Popup from './Popup.js';
+import PopupWithImage from './PopupWithImage.js';
+import PopupWithForm from './PopupWithForm.js';
 import { initialCards } from './initialcards.js';
-// import { openPopup, closePopup } from './utils/utils.js';
 import { popupEditValidator, popupAddValidator} from './formValidator.js';
 // Сгенерировать начальные карты
-// initialCards.forEach((data) => {
-//   const cardElement = createCard(data);
-//   cardsArray.prepend(cardElement);
-// });
 const cardList = new Section({
   items: initialCards,
   renderer: (item) => {
@@ -20,9 +16,34 @@ const cardList = new Section({
     }
 }, '.places__cards');
 cardList.render();
-//запуск валидатора
+// создание попапа превью картинки
+const popupImage = new PopupWithImage('.popup_type_image');
+popupImage.setEventListeners();
+// создание попапа формы рекдактирования
+const editProfilePopup = new PopupWithForm('.popup_type_edit', (data) => {
+  submitEditProfileForm(data);
+});
+editProfilePopup.setEventListeners();
+// открытие попапа рекдактирвоания
+editBtn.addEventListener('click', () => {
+  editProfilePopup.open();
+});
+
+
+// создание попапа добавления карты
+const addCardPopup = new PopupWithForm('.popup_type_add', (data) => {
+  submitAddCardForm(data);
+});
+addCardPopup.setEventListeners();
+// открытие попапа добавления карты
+addBtn.addEventListener('click',() => {
+  addCardPopup.open();
+});
+
+//запуск валидатора форм
 popupEditValidator.enableValidation();
 popupAddValidator.enableValidation();
+
 // функция создания карты
 function createCard(item) {
   const card = new Card(item, '.card-template');
@@ -52,22 +73,10 @@ function submitEditProfileForm(evt) {
   profileJob.textContent = jobInput.value;
   closePopup(popupEdit);
 }
+
 // Обработчики событий
 // для сохранения новых данных профиля
 formEditProfile.addEventListener('submit', submitEditProfileForm);
-// для открытия попапа добавления карточки
-// addBtn.addEventListener('click', () => {
-//   openPopup(popupAdd);
-//   formAddCard.reset();
-//   popupAddValidator.resetForm();
-//   popupAddValidator.resetInputsErrors();
-// });
-// для открытия попапа редактирования профиля
-// editBtn.addEventListener('click', () => {
-//   openPopup(popupEdit);
-//   popupEditValidator.resetInputsErrors();
-//   nameInput.value = profileName.textContent;
-//   jobInput.value = profileJob.textContent;
-// })
+
 // для добавления новой карточки на страницу
 formAddCard.addEventListener('submit', saveNewCard);

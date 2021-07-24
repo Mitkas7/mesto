@@ -1,3 +1,4 @@
+const escape = 'Escape';
 export default class Popup {
   constructor(popupSelector) {
     this._popupSelector = document.querySelector(popupSelector);
@@ -13,9 +14,8 @@ export default class Popup {
     document.addEventListener('keydown', this._handleEscClose);
   }
   setEventListeners(){
-    this._popupSelector.querySelector('.popup__button-close')
-    .addEventListener('click', this._close());
-    this._popupSelector.addEventListener('mousedown', this._close());
+    this._popupSelector.querySelector('.popup__button-close').addEventListener('click', this.close());
+    this._popupSelector.addEventListener('mousedown', this.close());
   }
   _handleEscClose() {
     if (evt.key === 'Escape') {
