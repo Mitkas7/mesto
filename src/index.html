@@ -9,12 +9,12 @@
 <body class="root">
   <div class="page">
     <header class="header">
-      <img src="./images/logo.svg" alt="логотип" class="logo">
+      <img src="<%=require('./images/logo.svg')%>" alt="логотип" class="logo">
     </header>
     <main class="content">
       <section class="profile">
         <div class="profile__card">
-          <img src="./images/avatar_kusto.jpg" alt="аватар" class="profile__avatar">
+          <img src="<%=require('./images/avatar_kusto.jpg')%>" alt="аватар" class="profile__avatar">
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button class="profile__button-edit button button_type_edit" type="button"></button>
@@ -84,6 +84,5 @@
       </li>
     </template>
   </div>
-  <script type="module" src="js/index.js"></script>
 </body>
 </html>

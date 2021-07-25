@@ -76,4 +76,3 @@ function createCard(item) {
 function addNewCard(cardItem) {
   cardsArray.prepend(createCard(cardItem));
 }
-console.log('hello world');
