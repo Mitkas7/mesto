@@ -1,17 +1,18 @@
-import Card from './Card.js';
-import Section from './Section.js';
-import UserInfo from './UserInfo.js';
-import PopupWithForm from './PopupWithForm.js';
-import PopupWithImage from './PopupWithImage.js';
-import { initialCards } from './initialcards.js';
-import { popupEditValidator, popupAddValidator } from './formValidator.js';
-import { cardsArray, addBtn, editBtn, placeName, imageUrl, nameInput, jobInput, formAddCard } from './constants.js';
+import './styles/index.css';
+import Card from '../src/scripts/Card';
+import Section from '../src/scripts/Section.js';
+import UserInfo from '../src/scripts/UserInfo.js';
+import PopupWithForm from '../src/scripts/PopupWithForm.js';
+import PopupWithImage from '../src/scripts/PopupWithImage.js';
+import { initialCards } from '../src/scripts/initialcards.js';
+import { popupEditValidator, popupAddValidator } from '../src/scripts/formValidator.js';
+import { cardsArray, addBtn, editBtn, placeName, imageUrl, nameInput, jobInput, formAddCard } from '../src/scripts/constants.js';
 // Сгенерировать начальные карты
 const cardList = new Section({
   items: initialCards,
   renderer: (item) => {
     cardList.addItem(createCard(item));
-    }
+  }
 }, '.places__cards');
 cardList.render();
 // создание попапа превью картинки
@@ -43,7 +44,7 @@ const addCardPopup = new PopupWithForm('.popup_type_add', (data) => {
 });
 addCardPopup.setEventListeners();
 // открытие попапа добавления карты
-addBtn.addEventListener('click',() => {
+addBtn.addEventListener('click', () => {
   addCardPopup.open();
   placeName.value = '';
   imageUrl.value = '';
@@ -75,3 +76,4 @@ function createCard(item) {
 function addNewCard(cardItem) {
   cardsArray.prepend(createCard(cardItem));
 }
+console.log('hello world');
