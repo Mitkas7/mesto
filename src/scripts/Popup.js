@@ -9,7 +9,7 @@ export default class Popup {
   }
   close() {
     this._popupSelector.classList.remove('popup_status_opened');
-    document.addEventListener('click', this._handleEscClose);
+    document.removeEventListener('click', this._handleEscClose);
   }
   setEventListeners(){
     this._popupSelector.querySelector('.popup__button-close').addEventListener('click', this.close.bind(this));

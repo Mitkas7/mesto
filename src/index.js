@@ -59,6 +59,7 @@ function submitAddCardForm(data) {
     alt: data.placeName,
   }
   addNewCard(newCard);
+  addCardPopup.close();
 }
 //запуск валидатора форм
 popupEditValidator.enableValidation();
