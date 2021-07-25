@@ -7,7 +7,9 @@
 * Grid Layout
 * CSS Animations
 * JavaSctipt
-* Методология БЭМ, включая файловую структуру БЭМ Nested
+* Webpack
+* Babel
+* Методология БЭМ(BEM Nested)
 * Git
 
 **"Дисклеймер"**

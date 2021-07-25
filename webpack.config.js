@@ -42,8 +42,6 @@ module.exports = {
       template: './src/index.html'
     }),
     new CleanWebpackPlugin(),
-    new MiniCssExtractPlugin(),
-    require('autoprefixer'),
-    require('cssnano')
+    new MiniCssExtractPlugin()
   ]
 }

@@ -33,10 +33,4 @@ export default class Card {
   _likeCard() {
     this._element.querySelector('.place__button-like').classList.toggle('button_type_like-active');
   }
-  _openCardPreview() {
-    openPopup(popupImage);
-    popupPic.src = this.cardImage.src;
-    popupPic.alt = this.cardName.textContent;
-    popupName.textContent = this.cardName.textContent;
-  }
 }
