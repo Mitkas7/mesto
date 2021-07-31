@@ -14,7 +14,10 @@
     <main class="content">
       <section class="profile">
         <div class="profile__card">
-          <img src="<%=require('./images/avatar_kusto.jpg')%>" alt="аватар" class="profile__avatar">
+          <div class="profile__avatar-container">
+            <img src="<%=require('./images/avatar_kusto.jpg')%>" alt="аватар" class="profile__avatar">
+            <button class="profile__button-edit-avatar" type="button"></button>
+          </div>
           <div class="profile__info">
             <h1 class="profile__name">Жак-Ив Кусто</h1>
             <button class="profile__button-edit button button_type_edit" type="button"></button>
@@ -61,7 +64,7 @@
       </div>
     </div>
     <div class="popup popup_type_image">
-      <div class="popup__image-container">
+      <div class="popup__container">
         <button class="popup__button-close button" type="button"></button>
          <figure class="popup__caption-container">
           <img src="#" alt="#" class="popup__image">
@@ -69,6 +72,29 @@
             <h2 class="popup__place-caption"></h2>
           </figcaption>
         </figure>
+      </div>
+    </div>
+    <div class="popup popup_type_confirm">
+      <div class="popup__container">
+        <button class="popup__button-close button" type="button"></button>
+        <form action="#" name="confirm" class="popup__form popup__form_type_confirm">
+          <h3 class="popup__title">Вы уверены?</h3>
+          <button type="submit" class="popup__button-submit button button_type_save">Да</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_update-avatar">
+      <div class="popup__container">
+        <button class="popup__button-close button" type="button"></button>
+        <form action="#" name="update-avatar" class="popup__form popup__form_type_update-avatar">
+          <h3 class="popup__title">Обновить аватар</h3>
+          <fieldset class="popup__fieldset">
+            <input class="popup__form-input popup__form-input_type_avatar-url" id="input-avatar-url" type="url"
+              name="placeName" required placeholder="Ссылка на аватар">
+            <span class="popup__input-error input-place-name-error"></span>
+          </fieldset>
+          <button type="submit" class="popup__button-submit button button_type_save">Сохранить</button>
+        </form>
       </div>
     </div>
     <template class="card-template">
