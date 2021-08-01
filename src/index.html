@@ -64,7 +64,7 @@
       </div>
     </div>
     <div class="popup popup_type_image">
-      <div class="popup__container">
+      <div class="popup__image-container">
         <button class="popup__button-close button" type="button"></button>
          <figure class="popup__caption-container">
           <img src="#" alt="#" class="popup__image">
@@ -74,19 +74,10 @@
         </figure>
       </div>
     </div>
-    <div class="popup popup_type_confirm">
+     <div class="popup popup_type_edit-avatar">
       <div class="popup__container">
         <button class="popup__button-close button" type="button"></button>
-        <form action="#" name="confirm" class="popup__form popup__form_type_confirm">
-          <h3 class="popup__title">Вы уверены?</h3>
-          <button type="submit" class="popup__button-submit button button_type_save">Да</button>
-        </form>
-      </div>
-    </div>
-    <div class="popup popup_type_update-avatar">
-      <div class="popup__container">
-        <button class="popup__button-close button" type="button"></button>
-        <form action="#" name="update-avatar" class="popup__form popup__form_type_update-avatar">
+        <form action="#" name="edit-avatar" class="popup__form popup__form_type_edit-avatar">
           <h3 class="popup__title">Обновить аватар</h3>
           <fieldset class="popup__fieldset">
             <input class="popup__form-input popup__form-input_type_avatar-url" id="input-avatar-url" type="url"
@@ -94,6 +85,15 @@
             <span class="popup__input-error input-place-name-error"></span>
           </fieldset>
           <button type="submit" class="popup__button-submit button button_type_save">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_confirm">
+      <div class="popup__container">
+        <button class="popup__button-close button" type="button"></button>
+        <form action="#" name="confirm" class="popup__form popup__form_type_confirm">
+          <h3 class="popup__title">Вы уверены?</h3>
+          <button type="submit" class="popup__button-submit button button_type_save">Да</button>
         </form>
       </div>
     </div>
