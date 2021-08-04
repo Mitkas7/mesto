@@ -4,23 +4,31 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._submitForm = sumbitForm;
     this._form = this._popupSelector.querySelector('.popup__form');
+    this._submitButton = this._popupSelector.querySelector('.popup__button-submit');
   }
   _getInputValues() {
+    this._inputsList = this._form.querySelectorAll('.popup__form-input');
     this._inputValues = {};
-    this._popupSelector.querySelectorAll('.popup__form-input').forEach((input) => {
+    this._inputsList.forEach((input) => {
       this._inputValues[input.name] = input.value;
     });
     return this._inputValues;
   }
   setEventListeners() {
+    super.setEventListeners();
     this._form.addEventListener('submit', (evt) => {
       evt.preventDefault();
-      this._submitForm(this._getInputValues());
+      const data = this._getInputValues();
+      this._submitForm(data);
     });
-    super.setEventListeners();
   }
   close() {
     this._form.reset();
     super.close();
   }
+  changeButtonText(text) {
+    this._submitButton.textContent = text;
+  }
 }
+
+
