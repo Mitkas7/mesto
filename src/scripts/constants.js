@@ -4,7 +4,7 @@ export const userAbout = document.querySelector('.profile__about');
 export const userAvatar = document.querySelector('.profile__avatar');
 
 // Формы
-export const formEditProfile = document.querySelector('.popup_form_type_edit-profile');
+export const formEditProfile = document.querySelector('.popup__form_type_edit-profile');
 export const formAddCard = document.querySelector('.popup__form_type_add');
 export const formEditAvatar = document.querySelector('.popup__form_type_edit-avatar');
 // Кнопки
