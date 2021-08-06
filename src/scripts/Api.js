@@ -28,7 +28,7 @@ export default class Api {
     })
     .then(this._checkResponse)
   }
-  editUserInfo(name, about) {
+  editUserInfo(data) {
     return fetch(`${this._url}users/me`, {
       method:'PATCH',
       headers: {
@@ -36,13 +36,13 @@ export default class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: name,
-        about: about
+        name: data.name,
+        about: data.about
       })
     })
     .then(this._checkResponse)
   }
-  editUserAvatar(avatar) {
+  editUserAvatar(data) {
     return fetch(`${this._url}users/me/avatar`, {
       method: 'PATCH',
       headers: {
@@ -50,12 +50,12 @@ export default class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        avatar: avatar
+        avatar: data.avatarLink
       })
     })
       .then(this._checkResponse)
   }
-  addNewCard(name, link) {
+  addNewCard(data) {
     return fetch(`${this._url}cards`, {
       method: 'POST',
       headers: {
@@ -63,8 +63,8 @@ export default class Api {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify({
-        name: name,
-        link: link
+        name: data.name,
+        link: data.link
       })
     })
     .then(this._checkResponse)
