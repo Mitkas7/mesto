@@ -9,7 +9,7 @@
 * JavaSctipt
 * Webpack
 * Babel
-* Методология БЭМ(BEM Nested)
+* BEM Nested
 * Git
 
 **"Дисклеймер"**

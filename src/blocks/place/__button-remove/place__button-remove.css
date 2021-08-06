@@ -7,4 +7,8 @@
   position: absolute;
   top: 18px;
   right: 15px;
+  display: none;
+}
+.place__button-remove:hover {
+  cursor: pointer;
 }

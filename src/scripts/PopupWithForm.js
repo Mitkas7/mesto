@@ -4,23 +4,36 @@ export default class PopupWithForm extends Popup {
     super(popupSelector);
     this._submitForm = sumbitForm;
     this._form = this._popupSelector.querySelector('.popup__form');
+    this._submitButton = this._popupSelector.querySelector('.popup__button-submit');
+    this._currentButtonText = this._submitButton.textContent;
   }
   _getInputValues() {
+    this._inputsList = this._form.querySelectorAll('.popup__form-input');
     this._inputValues = {};
-    this._popupSelector.querySelectorAll('.popup__form-input').forEach((input) => {
+    this._inputsList.forEach((input) => {
       this._inputValues[input.name] = input.value;
     });
     return this._inputValues;
   }
   setEventListeners() {
-    this._form.addEventListener('submit', (evt) => {
-      evt.preventDefault();
+    super.setEventListeners();
+    this._form.addEventListener('submit', (event) => {
+      event.preventDefault();
       this._submitForm(this._getInputValues());
     });
-    super.setEventListeners();
   }
   close() {
     this._form.reset();
     super.close();
   }
+  changeButtonText(isLoading, loadingText = 'Cохранение...') {
+    if (isLoading) {
+      this._submitButton.textContent = loadingText;
+    } else {
+      this._submitButton.textContent = this._currentButtonText;
+    }
+  }
 }
+
+
+

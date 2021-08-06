@@ -14,11 +14,14 @@
     <main class="content">
       <section class="profile">
         <div class="profile__card">
-          <img src="<%=require('./images/avatar_kusto.jpg')%>" alt="аватар" class="profile__avatar">
+          <div class="profile__avatar-container">
+            <img src="" alt="аватар" class="profile__avatar">
+            <button class="profile__button-edit-avatar" type="button"></button>
+          </div>
           <div class="profile__info">
-            <h1 class="profile__name">Жак-Ив Кусто</h1>
+            <h1 class="profile__name"></h1>
             <button class="profile__button-edit button button_type_edit" type="button"></button>
-            <p class="profile__job">Исследователь океана</p>
+            <p class="profile__about"></p>
           </div>
         </div>
         <button class="profile__button-add button button_type_add" type="button"></button>
@@ -33,12 +36,12 @@
     <div class="popup popup_type_edit">
       <div class="popup__container">
         <button class="popup__button-close button" type="button"></button>
-        <form action="#" name="profile-edit" class="popup__form">
+        <form action="#" name="profile-edit" class="popup__form popup_form_type_edit-profile">
           <h3 class="popup__title">Редактировать профиль</h3>
           <fieldset class="popup__fieldset">
             <input class="popup__form-input popup__form-input_type_name" id="input-name" type="text" name="name" placeholder="Введите ваше имя" required minlength="2" maxlength="40">
             <span class="popup__input-error input-name-error"></span>
-            <input class="popup__form-input popup__form-input_type_job" id="input-job" type="text" name="job" placeholder="Чем вы занимаетесь?" required minlength="2" maxlength="200">
+            <input class="popup__form-input popup__form-input_type_job" id="input-job" type="text" name="about" placeholder="Чем вы занимаетесь?" required minlength="2" maxlength="200">
             <span class="popup__input-error input-job-error"></span>
           </fieldset>
           <button type="submit" class="popup__button-submit button button_type_save">Сохранить</button>
@@ -71,6 +74,29 @@
         </figure>
       </div>
     </div>
+     <div class="popup popup_type_edit-avatar">
+      <div class="popup__container">
+        <button class="popup__button-close button" type="button"></button>
+        <form action="#" name="edit-avatar" class="popup__form popup__form_type_edit-avatar">
+          <h3 class="popup__title">Обновить аватар</h3>
+          <fieldset class="popup__fieldset">
+            <input class="popup__form-input popup__form-input_type_avatar-url" id="input-avatar-url" type="url"
+              name="avatarLink" required placeholder="Ссылка на аватар">
+            <span class="popup__input-error input-avatar-url-error"></span>
+          </fieldset>
+          <button type="submit" class="popup__button-submit button button_type_save">Сохранить</button>
+        </form>
+      </div>
+    </div>
+    <div class="popup popup_type_confirm">
+      <div class="popup__container">
+        <button class="popup__button-close button" type="button"></button>
+        <form action="#" name="confirm" class="popup__form popup__form_type_confirm">
+          <h3 class="popup__title">Вы уверены?</h3>
+          <button type="submit" class="popup__button-submit button button_type_save">Да</button>
+        </form>
+      </div>
+    </div>
     <template class="card-template">
       <li class="place">
         <button class="place__button-remove button"></button>
@@ -78,7 +104,10 @@
           <img src="#" alt="#" class="place__image">
           <figcaption class="place__caption">
             <h2 class="place__name"></h2>
-            <button class="place__button-like button button_type_like" type="button"></button>
+            <div class="place__like-container">
+              <button class="place__button-like button button_type_like" type="button"></button>
+              <span class="place__counter-likes"></span>
+            </div>
           </figcaption>
         </figure>
       </li>

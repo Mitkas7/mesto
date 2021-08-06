@@ -1,5 +1,5 @@
 export default class Popup {
-  constructor(popupSelector, handleCardClick) {
+  constructor(popupSelector) {
     this._popupSelector = document.querySelector(popupSelector);
     this._handleEscClose = this._handleEscClose.bind(this);
   }
@@ -11,7 +11,7 @@ export default class Popup {
     this._popupSelector.classList.remove('popup_status_opened');
     document.removeEventListener('click', this._handleEscClose);
   }
-  setEventListeners(){
+  setEventListeners() {
     this._popupSelector.querySelector('.popup__button-close').addEventListener('click', this.close.bind(this));
     this._popupSelector.addEventListener('click', this._handleOverlayClose.bind(this));
   }
