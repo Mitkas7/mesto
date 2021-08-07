@@ -3,8 +3,8 @@ export default class PopupWithForm extends Popup {
   constructor(popupSelector, sumbitForm) {
     super(popupSelector);
     this._submitForm = sumbitForm;
-    this._form = this._popupSelector.querySelector('.popup__form');
-    this._submitButton = this._popupSelector.querySelector('.popup__button-submit');
+    this._form = this._popup.querySelector('.popup__form');
+    this._submitButton = this._popup.querySelector('.popup__button-submit');
     this._currentButtonText = this._submitButton.textContent;
   }
   _getInputValues() {
