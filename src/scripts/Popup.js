@@ -21,8 +21,7 @@ export default class Popup {
     }
   }
   _handleOverlayClose(evt) {
-    const openedPopup = document.querySelector('.popup_status_opened');
-    if (evt.target === openedPopup) {
+    if (evt.target === evt.currentTarget) {
       this.close();
     }
   }
