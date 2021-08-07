@@ -92,9 +92,9 @@ addCardBtn.addEventListener('click', () => {
 });
 editProfileBtn.addEventListener('click', () => {
   popupEditProfileValidator.resetValidation();
-  const userInfoInput = userInfo.getUserInfo();
-  userName.value = userInfoInput.dataName;
-  userAbout.value = userInfoInput.dataAbout;
+  const currentUserInfo = userInfo.getUserInfo();
+  formEditProfile.name.value = currentUserInfo.userName;
+  formEditProfile.about.value = currentUserInfo.userAbout;
   popupEditProfile.open();
 });
 editAvatarBtn.addEventListener('click', () => {
