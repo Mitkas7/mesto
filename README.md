@@ -12,4 +12,8 @@
 * BEM Nested
 * Git
 
+
+
+
+
 * [Ссылка на опубликованный проект в GH-Pages](https://mitkas7.github.io/mesto/)
