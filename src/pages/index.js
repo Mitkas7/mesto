@@ -1,17 +1,18 @@
-import './styles/index.css';
-import Api from '../src/scripts/Api.js';
-import Card from '../src/scripts/Card.js';
-import Section from '../src/scripts/Section.js';
-import UserInfo from '../src/scripts/UserInfo.js';
-import PopupWithForm from '../src/scripts/PopupWithForm.js';
-import PopupWithImage from '../src/scripts/PopupWithImage.js';
-import PopupWithConfirm from '../src/scripts/PopupWithConfirm.js';
-import { FormValidator } from './scripts/FormValidator.js';
+import '../pages/index.css';
+import Api from '../components/Api.js';
+import Card from '../components/Card.js';
+import Section from '../components/Section.js';
+import UserInfo from '../components/UserInfo.js';
+import PopupWithForm from '../components/PopupWithForm.js';
+import PopupWithImage from '../components/PopupWithImage.js';
+import PopupWithConfirm from '../components/PopupWithConfirm.js';
+import { FormValidator } from '../components/FormValidator.js';
 import {
   cardsArray, userName, userAbout, userAvatar,
   editProfileBtn, addCardBtn, editAvatarBtn,
   formEditProfile, formAddCard, formEditAvatar, config,
-  popupAddCardSelector, popupEditProfileSelector, popupEditAvatarSelector, popupImagePreviewSelector, popupConfirmSelector} from '../src/scripts/constants.js';
+  popupAddCardSelector, popupEditProfileSelector, popupEditAvatarSelector, popupImagePreviewSelector, popupConfirmSelector
+} from '../utils/constants.js';
 let userId = null;
 const api = new Api('https://nomoreparties.co/v1/cohort-26/', '2ceacd5c-fca2-4318-a334-9732db7cb6fc');
 const userInfo = new UserInfo(userName, userAbout, userAvatar);
