@@ -6,7 +6,7 @@ import UserInfo from '../src/scripts/UserInfo.js';
 import PopupWithForm from '../src/scripts/PopupWithForm.js';
 import PopupWithImage from '../src/scripts/PopupWithImage.js';
 import PopupWithConfirm from '../src/scripts/PopupWithConfirm.js';
-import { FormValidator } from '../src/scripts/formValidator.js';
+import { FormValidator } from './scripts/FormValidator.js';
 import {
   cardsArray, userName, userAbout, userAvatar,
   editProfileBtn, addCardBtn, editAvatarBtn,
@@ -87,17 +87,17 @@ popupEditAvatar.setEventListeners();
 //
 addCardBtn.addEventListener('click', () => {
   addCardPopup.open();
-  popupAddCardValidator.resetForm();
+  popupAddCardValidator.resetValidation();
 });
 editProfileBtn.addEventListener('click', () => {
-  popupEditProfileValidator.resetForm();
+  popupEditProfileValidator.resetValidation();
   const userInfoInput = userInfo.getUserInfo();
   userName.value = userInfoInput.dataName;
   userAbout.value = userInfoInput.dataAbout;
   popupEditProfile.open();
 });
 editAvatarBtn.addEventListener('click', () => {
-  popupEditAvatarValidator.resetForm();
+  popupEditAvatarValidator.resetValidation();
   popupEditAvatar.open();
 })
 
